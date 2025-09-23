@@ -1,16 +1,16 @@
 const settings = {
-  packname: 'Knight Bot',
+  packname: '𝐉ᴜɴᴇ 𝐌ᴅ',
   author: '‎',
-  botName: "Knight Bot",
-  botOwner: 'Professor', // Your name
-  ownerNumber: '919876543210', //Set your number here without + symbol, just add country code & number without any space
+  botName: "𝐉ᴜɴᴇ 𝐌ᴅ",
+  botOwner: 'supreme', // Your name
+  ownerNumber: '254792021944', //Set your number here without + symbol, just add country code & number without any space
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
   maxStoreMessages: 20, 
   storeWriteInterval: 10000,
   description: "This is a bot for managing group commands and automating tasks.",
   version: "2.1.6",
-  updateZipUrl: "https://github.com/mruniquehacker/Knightbot-MD/archive/refs/heads/main.zip",
+  updateZipUrl: "https://github.com/vinpink2/june-private-repohide/archive/refs/heads/main.zip",
 };
 
 module.exports = settings;
