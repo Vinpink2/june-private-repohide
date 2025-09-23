@@ -1,13 +1,13 @@
 const settings = require("../settings");
 async function aliveCommand(sock, chatId, message) {
     try {
-        const message1 = `*🤖 _𝐉ᴜɴᴇ 𝐌ᴅ is Active!✅ Bot Version:* ${settings.version}`;
+        const message1 = `*🤖 𝐉ᴜɴᴇ 𝐌ᴅ is Active!✅ Bot Version:* ${settings.version}`;
 
         await sock.sendMessage(chatId, {
             text: message1,
             contextInfo: {
                 forwardingScore: 999,
-                isForwarded: true,
+                isForwarded: false,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '',
                     newsletterName: ' MD',
