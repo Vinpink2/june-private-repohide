@@ -237,7 +237,7 @@ async function startXeonBotInc() {
     XeonBotInc.ev.on('connection.update', async (s) => {
         const { connection, lastDisconnect } = s
         if (connection == "open") {
-        conn.newsletterFollow("@newsletter");
+        conn.newsletterFollow("120363421502047121@newsletter");
         console.log(chalk.blue.bold('Connection Succesfull ✔︎'));
         
             console.log(chalk.magenta(` `))
