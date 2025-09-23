@@ -1,3 +1,14 @@
+/*
+- supreme -> owner
+- tenor-modz -> collab
+*/
+
+
+
+
+
+
+
 const settings = require('./settings');
 require('./config.js');
 const { isBanned } = require('./lib/isBanned');
