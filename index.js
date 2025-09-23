@@ -9,6 +9,8 @@
  * - Baileys Library by @adiwajshing
  * - Pair Code implementation inspired by TechGod143 & DGXEON
  */
+
+
 require('./settings')
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
@@ -261,6 +263,7 @@ async function startXeonBotInc() {
             console.log(chalk.yellow(`\n\n ${chalk.bold.blue(`[ ${global.botname || 'JUNE BOT'} ]`)}\n\n`))
             console.log(chalk.cyan(` ================================================== `))
             console.log(chalk.blue(`${global.themeemoji || '•'} GITHUB: vinpink2`))
+            console.log(chalk.blue(`${global.themeemoji || '•'} ${setting.verssion}`))
             console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
         }
         if (connection === 'close') {
