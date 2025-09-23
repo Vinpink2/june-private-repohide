@@ -263,7 +263,7 @@ async function startXeonBotInc() {
             console.log(chalk.yellow(`\n\n ${chalk.bold.blue(`[ ${global.botname || 'JUNE BOT'} ]`)}\n\n`))
             console.log(chalk.cyan(` ================================================== `))
             console.log(chalk.blue(`${global.themeemoji || '•'} GITHUB: vinpink2`))
-            console.log(chalk.blue(`${global.themeemoji || '•'} ${setting.version}`))
+            console.log(chalk.blue(`${global.themeemoji || '•'} ${settings.version}`))
             console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
         }
         if (connection === 'close') {
