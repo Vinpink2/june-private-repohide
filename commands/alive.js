@@ -8,7 +8,7 @@ async function aliveCommand(sock, chatId, message) {
             image: {url: 'https://files.catbox.moe/7ibt7j.jpg' },
             contextInfo: {
                 forwardingScore: 999,
-                isForwarded: false,
+                isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '',
                     newsletterName: ' MD',
