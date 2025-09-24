@@ -6,7 +6,7 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363161513685998@newsletter',
+            newsletterJid: '',
             newsletterName: 'KnightBot MD',
             serverMessageId: -1
         }
@@ -153,7 +153,7 @@ async function reactToStatus(sock, statusKey) {
                         participant: statusKey.participant || statusKey.remoteJid,
                         fromMe: false
                     },
-                    text: '💚'
+                    text: '💙'
                 }
             },
             {
