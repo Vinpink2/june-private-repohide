@@ -196,7 +196,7 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
     }
     try {
         // Minimal UX
-        await sock.sendMessage(chatId, { text: '🔄 Updating the bot, please wait…' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '_Updating bot database.,please wait…_' }, { quoted: message });
         if (await hasGitRepo()) {
             // silent
             const { oldRev, newRev, alreadyUpToDate, commits, files } = await updateViaGit();
@@ -211,9 +211,9 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
         }
         try {
             const v = require('../settings').version || '';
-            await sock.sendMessage(chatId, { text: `✅ Update done. Restarting…` }, { quoted: message });
+            await sock.sendMessage(chatId, { text: `_Restarting…_` }, { quoted: message });
         } catch {
-            await sock.sendMessage(chatId, { text: '✅ Restared Successfully\n Type .ping to check latest version.' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: '_Restared Successfully Enjoy 😘_' }, { quoted: message });
         }
         await restartProcess(sock, chatId, message);
     } catch (err) {
