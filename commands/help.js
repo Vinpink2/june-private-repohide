@@ -182,7 +182,8 @@ async function helpCommand(sock, chatId, message) {
 ┃➤ .script
 ┃➤ .repo
 ┃➤ .gitclone
-┗❐`;
+┗❐
+     `;
     try {
         const imagePath = path.join(__dirname, '../assets/menu.jpg');
         
