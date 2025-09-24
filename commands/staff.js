@@ -24,7 +24,7 @@ async function staffCommand(sock, chatId, msg) {
 ≡ *GROUP ADMINS* _${groupMetadata.subject}_
 
 ┌─⊷ *ADMINS*
-▢ ${listAdmin}
+🔹 ${listAdmin}
 └───────────
 `.trim();
 
