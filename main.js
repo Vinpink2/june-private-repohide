@@ -980,6 +980,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await piesAlias(sock, chatId, message, 'hijab');
                 commandExecuted = true;
                 break;
+            case userMessage.startsWith('.restart'):
             case userMessage.startsWith('.update'):
                 {
                     const parts = rawText.trim().split(/\s+/);
