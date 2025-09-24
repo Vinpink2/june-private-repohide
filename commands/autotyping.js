@@ -1,5 +1,5 @@
 /**
- * Knight Bot - A WhatsApp Bot
+ * june Bot - A WhatsApp Bot
  * Autotyping Command - Shows fake typing status
  */
 
@@ -28,7 +28,7 @@ async function autotypingCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363161513685998@newsletter',
+                        newsletterJid: '',
                         newsletterName: 'KnightBot MD',
                         serverMessageId: -1
                     }
@@ -59,7 +59,7 @@ async function autotypingCommand(sock, chatId, message) {
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363161513685998@newsletter',
+                            newsletterJid: '@newsletter',
                             newsletterName: 'KnightBot MD',
                             serverMessageId: -1
                         }
@@ -82,7 +82,7 @@ async function autotypingCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363161513685998@newsletter',
+                    newsletterJid: '@newsletter',
                     newsletterName: 'KnightBot MD',
                     serverMessageId: -1
                 }
@@ -97,7 +97,7 @@ async function autotypingCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363161513685998@newsletter',
+                    newsletterJid: '@newsletter',
                     newsletterName: 'KnightBot MD',
                     serverMessageId: -1
                 }
