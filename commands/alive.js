@@ -1,11 +1,11 @@
 const settings = require("../settings");
 async function aliveCommand(sock, chatId, message) {
     try {
-        const message1 = `*🤖 𝐉ᴜɴᴇ 𝐌ᴅ is Active!\n\n✅ Bot Version:* ${settings.version}`;
+        const message1 = `*🤖 𝐉ᴜɴᴇ 𝐌ᴅ is Active!*\n\n*✅ Bot Version:* ${settings.version}`;
 
         await sock.sendMessage(chatId, {
             text: message1,
-            image: {url: 'https://files.catbox.moe/7ibt7j.jpg' },
+           // image: {url:'https://files.catbox.moe/7ibt7j.jpg'},
             contextInfo: {
                 forwardingScore: 999,
                 isForwarded: true,
