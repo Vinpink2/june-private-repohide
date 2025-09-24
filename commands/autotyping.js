@@ -1,5 +1,5 @@
 /**
- * Knight Bot - A WhatsApp Bot
+ * June Bot - A WhatsApp Bot
  * Autotyping Command - Shows fake typing status
  */
 
@@ -26,10 +26,10 @@ async function autotypingCommand(sock, chatId, message) {
                 text: '❌ This command is only available for the owner!',
                 contextInfo: {
                     forwardingScore: 1,
-                    isForwarded: true,
+                    isForwarded: false,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363161513685998@newsletter',
-                        newsletterName: 'KnightBot MD',
+                        newsletterJid: '',
+                        newsletterName: ' MD',
                         serverMessageId: -1
                     }
                 }
@@ -59,8 +59,8 @@ async function autotypingCommand(sock, chatId, message) {
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363161513685998@newsletter',
-                            newsletterName: 'KnightBot MD',
+                            newsletterJid: 'newsletter',
+                            newsletterName: 'june MD',
                             serverMessageId: -1
                         }
                     }
@@ -77,13 +77,13 @@ async function autotypingCommand(sock, chatId, message) {
         
         // Send confirmation message
         await sock.sendMessage(chatId, {
-            text: `✅ Auto-typing has been ${config.enabled ? 'enabled' : 'disabled'}!`,
+            text: `✅ Auto-typing has been ${con' : 'disabled'}!`,
             contextInfo: {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363161513685998@newsletter',
-                    newsletterName: 'KnightBot MD',
+                    newsletterJid: 'newsletter',
+                    newsletterName: ' MD',
                     serverMessageId: -1
                 }
             }
@@ -97,8 +97,8 @@ async function autotypingCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363161513685998@newsletter',
-                    newsletterName: 'KnightBot MD',
+                    newsletterJid: '@newsletter',
+                    newsletterName: 'june MD',
                     serverMessageId: -1
                 }
             }
@@ -171,7 +171,7 @@ async function handleAutotypingForCommand(sock, chatId) {
             
             // Send composing again to ensure it stays visible
             await sock.sendPresenceUpdate('composing', chatId);
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            await new Promise(resolve => setTimeout(resolve, 2500));
             
             // Finally send paused status
             await sock.sendPresenceUpdate('paused', chatId);
