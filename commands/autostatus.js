@@ -3,11 +3,11 @@ const path = require('path');
 
 const channelInfo = {
     contextInfo: {
-        forwardingScore: 1,
+        forwardingScore: 999,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '',
-            newsletterName: 'KnightBot MD',
+            newsletterJid: '120363417542294659@newsletter',
+            newsletterName: 'cypherX Space',
             serverMessageId: -1
         }
     }
