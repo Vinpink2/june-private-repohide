@@ -195,7 +195,7 @@ async function helpCommand(sock, chatId, message) {
                 caption: helpMessage,
                 contextInfo: {
                     forwardingScore: 1,
-                    isForwarded: false,
+                    isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363421502047121@newsletter',
                         newsletterName: 'CypherX space',
