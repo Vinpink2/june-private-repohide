@@ -35,7 +35,7 @@ async function helpCommand(sock, chatId, message) {
 ┏❐═══════════════════╗
 ┃▢  *Owner:* ${settings.botOwner}
 ┃▢  *Uptime:* ${uptimeFormatted}
-┃▢  *Mode:* ${currentMode}
+┃▢  *Mode:* ${settings.commandMode}
 ┃▢  *Speed:* ${ping} ms
 ┃▢  *prefix:* [.]
 ┃▢  *vassion: V${settings.version}*
