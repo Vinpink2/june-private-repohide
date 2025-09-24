@@ -197,8 +197,8 @@ async function helpCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: false,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '@newsletter',
-                        newsletterName: '',
+                        newsletterJid: '120363421502047121@newsletter',
+                        newsletterName: 'CypherX space',
                         serverMessageId: -1
                     }
                 }
@@ -211,8 +211,8 @@ async function helpCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: false,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '@newsletter',
-                        newsletterName: '𝐉ᴜɴᴇ 𝐌ᴅ',
+                        newsletterJid: '120363421502047121@newsletter',
+                        newsletterName: 'CypherX space',
                         serverMessageId: -1
                     } 
                 }
