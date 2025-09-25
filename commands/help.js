@@ -176,13 +176,30 @@ async function helpCommand(sock, chatId, message) {
 ┃➤ .ytmp4
 ┗❐
 
+┏❐ \`IMG EDDIT\` ❐
+┃➤ .heart
+┃➤ .horny
+┃➤ .circle
+┃➤ .lgbt
+┃➤ .lolice
+┃➤ .its-so-stupid
+┃➤ .namecard 
+┃➤ .tweet
+┃➤ .ytcomment 
+┃➤ .comrade 
+┃➤ .gay 
+┃➤ .glass 
+┃➤ .jail 
+┃➤ .passed 
+┃➤ .triggered
+┗❐
+
 ┏❐ \`GITHUB CMD\` ❐
 ┃➤ .git
 ┃➤ .github
 ┃➤ .sc
 ┃➤ .script
 ┃➤ .repo
-┃➤ .gitclone
 ┗❐
      `;
     try {
