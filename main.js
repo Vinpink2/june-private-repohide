@@ -116,6 +116,8 @@ const stickercropCommand = require('./commands/stickercrop');
 const updateCommand = require('./commands/update');
 const removebgCommand = require('./commands/removebg');
 const { reminiCommand } = require('./commands/remini');
+const getppCommand = require('./commands/getpp');
+
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
@@ -764,6 +766,9 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
             case userMessage === '.setpp':
                 await setProfilePicture(sock, chatId, message);
+                break;
+           case userMessage === '.getpp':
+                await getProfilePicture(sock, chatId, message);
                 break;
             case userMessage.startsWith('.instagram') || userMessage.startsWith('.insta') || userMessage.startsWith('.ig'):
                 await instagramCommand(sock, chatId, message);
