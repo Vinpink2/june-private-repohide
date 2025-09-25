@@ -43,39 +43,39 @@ async function settingsCommand(sock, chatId, message) {
         const lines = [];
         lines.push('*BOT SETTINGS*');
         lines.push('');
-        lines.push(`• Mode: ${mode.isPublic ? 'Public' : 'Private'}`);
-        lines.push(`• Auto Status: ${autoStatus.enabled ? 'ON' : 'OFF'}`);
-        lines.push(`• Autoread: ${autoread.enabled ? 'ON' : 'OFF'}`);
-        lines.push(`• Autotyping: ${autotyping.enabled ? 'ON' : 'OFF'}`);
-        lines.push(`• PM Blocker: ${pmblocker.enabled ? 'ON' : 'OFF'}`);
-        lines.push(`• Anticall: ${anticall.enabled ? 'ON' : 'OFF'}`);
-        lines.push(`• Auto Reaction: ${autoReaction ? 'ON' : 'OFF'}`);
+        lines.push(`🔹 Mode: ${mode.isPublic ? 'Public' : 'Private'}`);
+        lines.push(`🔹 Auto Status: ${autoStatus.enabled ? 'ON' : 'OFF'}`);
+        lines.push(`🔹 Autoread: ${autoread.enabled ? 'ON' : 'OFF'}`);
+        lines.push(`🔹 Autotyping: ${autotyping.enabled ? 'ON' : 'OFF'}`);
+        lines.push(`🔹 PM Blocker: ${pmblocker.enabled ? 'ON' : 'OFF'}`);
+        lines.push(`🔹 Anticall: ${anticall.enabled ? 'ON' : 'OFF'}`);
+        lines.push(`🔹 Auto Reaction: ${autoReaction ? 'ON' : 'OFF'}`);
         if (groupId) {
             lines.push('');
             lines.push(`Group: ${groupId}`);
             if (antilinkOn) {
                 const al = userGroupData.antilink[groupId];
-                lines.push(`• Antilink: ON (action: ${al.action || 'delete'})`);
+                lines.push(`🔹 Antilink: ON (action: ${al.action || 'delete'})`);
             } else {
-                lines.push('• Antilink: OFF');
+                lines.push('🔸 Antilink: OFF');
             }
             if (antibadwordOn) {
                 const ab = userGroupData.antibadword[groupId];
-                lines.push(`• Antibadword: ON (action: ${ab.action || 'delete'})`);
+                lines.push(`🔹 Antibadword: ON (action: ${ab.action || 'delete'})`);
             } else {
-                lines.push('• Antibadword: OFF');
+                lines.push('🔸 Antibadword: OFF');
             }
-            lines.push(`• Welcome: ${welcomeOn ? 'ON' : 'OFF'}`);
-            lines.push(`• Goodbye: ${goodbyeOn ? 'ON' : 'OFF'}`);
-            lines.push(`• Chatbot: ${chatbotOn ? 'ON' : 'OFF'}`);
+            lines.push(`🔸 Welcome: ${welcomeOn ? 'ON' : 'OFF'}`);
+            lines.push(`🔸 Goodbye: ${goodbyeOn ? 'ON' : 'OFF'}`);
+            lines.push(`🔸 Chatbot: ${chatbotOn ? 'ON' : 'OFF'}`);
             if (antitagCfg && antitagCfg.enabled) {
-                lines.push(`• Antitag: ON (action: ${antitagCfg.action || 'delete'})`);
+                lines.push(`🔸 Antitag: ON (action: ${antitagCfg.action || 'delete'})`);
             } else {
-                lines.push('• Antitag: OFF');
+                lines.push('🔸 Antitag: OFF');
             }
         } else {
             lines.push('');
-            lines.push('Note: Per-group settings will be shown when used inside a group.');
+            lines.push('> _Thanks for choosing June md_.');
         }
 
         await sock.sendMessage(chatId, { text: lines.join('\n') }, { quoted: message });
