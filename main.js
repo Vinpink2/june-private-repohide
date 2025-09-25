@@ -119,6 +119,9 @@ const { reminiCommand } = require('./commands/remini');
 const getppCommand = require('./commands/getpp');
 const gitcloneCommand = require('./commands/gitclone');
 const settingsCommand = require('./commands/settings');
+const { pmblockerCommand, readState: readPmBlockerState } = require('./commands/pmblocker');
+
+
 
 // Global settings
 global.packname = settings.packname;
@@ -338,6 +341,13 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.settings':
                 await settingsCommand(sock, chatId, message);
                 break;
+            case userMessage.startsWith('.pmblocker'):
+                if (!message.key.fromMe && !senderIsSudo) {
+                    await sock.sendMessage(chatId, { text: 'Only owner/sudo can use pmblocker.' }, { quoted: message });
+                    commandExecuted = true;
+                    break;
+
+                
             case userMessage === '.sticker' || userMessage === '.s':
                 await stickerCommand(sock, chatId, message);
                 commandExecuted = true;
