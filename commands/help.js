@@ -81,6 +81,7 @@ async function helpCommand(sock, chatId, message) {
 ┃ .admins 
 ┃ .vv
 ┃ .trt
+┃ .url
 ┃ .ss 
 ┃ .jid
 ┗❐
@@ -98,6 +99,7 @@ async function helpCommand(sock, chatId, message) {
 ┃ .autoreact
 ┃ .getpp
 ┃ .setpp
+┃ .sudo
 ┃ .autobio
 ┃ .autotyping 
 ┗❐
@@ -129,7 +131,6 @@ async function helpCommand(sock, chatId, message) {
 ┃ .imagine
 ┃ .flux
 ┗❐
-
 
 ┏❐ \`MAKER MENU\`❐
 ┃ .compliment
