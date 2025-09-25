@@ -117,6 +117,7 @@ const updateCommand = require('./commands/update');
 const removebgCommand = require('./commands/removebg');
 const { reminiCommand } = require('./commands/remini');
 const getppCommand = require('./commands/getpp');
+const gitCloneCommand = require('gitclone');
 
 // Global settings
 global.packname = settings.packname;
@@ -603,8 +604,13 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.sc':
             case userMessage === '.script':
             case userMessage === '.repo':
-                await githubCommand(sock, chatId);
+            await githubCommand(sock, chatId);
                 break;
+
+                
+            case userMessage === '.gitclone':
+            await gitCloneCommand(sock, chatId);
+                
             case userMessage.startsWith('.antibadword'):
                 if (!isGroup) {
                     await sock.sendMessage(chatId, { text: 'This command can only be used in groups.', ...channelInfo });
