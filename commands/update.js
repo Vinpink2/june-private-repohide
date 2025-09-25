@@ -175,7 +175,7 @@ async function updateViaZip(sock, chatId, message, zipOverride) {
 
 async function restartProcess(sock, chatId, message) {
     try {
-        await sock.sendMessage(chatId, { text: '✅ Update complete! Restarting…' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '_🏂 June Update complete! …_' }, { quoted: message });
     } catch {}
     try {
         // Preferred: PM2
