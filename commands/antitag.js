@@ -13,7 +13,7 @@ async function handleAntitagCommand(sock, chatId, userMessage, senderId, isSende
         const action = args[0];
 
         if (!action) {
-            const usage = `ANTITAG SETUP\n\n 🔹${prefix}antitag on\n🔹${prefix}antitag set delete | kick\n🔹${prefix}antitag off\n\n`;
+            const usage = `ANTITAG SETUP\n\n🔹${prefix}antitag on\n🔹${prefix}antitag set delete | kick\n🔹${prefix}antitag off\n\n`;
             await sock.sendMessage(chatId, { text: usage },{quoted :message});
             return;
         }
