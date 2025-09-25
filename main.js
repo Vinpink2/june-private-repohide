@@ -768,7 +768,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await setProfilePicture(sock, chatId, message);
                 break;
            case userMessage === '.getpp':
-                await getProfilePicture(sock, chatId, message);
+                await getppCommand(sock, chatId, message);
                 break;
             case userMessage.startsWith('.instagram') || userMessage.startsWith('.insta') || userMessage.startsWith('.ig'):
                 await instagramCommand(sock, chatId, message);
