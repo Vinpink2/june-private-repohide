@@ -342,11 +342,6 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await settingsCommand(sock, chatId, message);
                 break;
                 
-            case userMessage.startsWith('.pmblocker'):
-                if (!message.key.fromMe && !senderIsSudo) {
-                    await sock.sendMessage(chatId, { text: 'Only owner/sudo can use pmblocker.' }, { quoted: message });
-                    commandExecuted = true;
-                    break;
                 
             case userMessage === '.sticker' || userMessage === '.s':
                 await stickerCommand(sock, chatId, message);
@@ -621,6 +616,16 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     await sock.sendMessage(chatId, { text: 'This command can only be used in groups.', ...channelInfo });
                 }
                 break;
+
+                
+            case userMessage.startsWith('.pmblocker'):
+                if (!message.key.fromMe && !senderIsSudo) {
+                    await sock.sendMessage(chatId, { text: 'Only owner/sudo can use pmblocker.' }, { quoted: message });
+                    commandExecuted = true;
+                    break;
+
+
+                
             case userMessage === '.git':
             case userMessage === '.github':
             case userMessage === '.sc':
