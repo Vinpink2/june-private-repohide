@@ -34,7 +34,7 @@ async function pmblockerCommand(sock, chatId, message, args) {
     const state = readState();
 
     if (!sub || !['on', 'off', 'status', 'setmsg'].includes(sub.toLowerCase())) {
-        await sock.sendMessage(chatId, { text: '*PMBLOCKER (Owner only)*\n\n.pmblocker on - Enable PM auto-block\n.pmblocker off - Disable PM blocker\n.pmblocker status - Show current status\n.pmblocker setmsg <text> - Set warning message' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '*☣️ AUTO-BLOCK ☣️*\n\n 🔸.pmblocker on - Enable PM auto-block\n 🔸.pmblocker off - Disable PM blocker\n 🔸 .pmblocker status - Show current status\n 🔸 .pmblocker setmsg <text> - Set warning message' }, { quoted: message });
         return;
     }
 
