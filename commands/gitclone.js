@@ -15,4 +15,4 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
 
 
 
-/*/* supreme*/*/
+/** supreme*/
