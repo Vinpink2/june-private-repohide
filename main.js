@@ -118,6 +118,7 @@ const removebgCommand = require('./commands/removebg');
 const { reminiCommand } = require('./commands/remini');
 const getppCommand = require('./commands/getpp');
 const gitcloneCommand = require('./commands/gitclone');
+const settingsCommand = require('./commands/settings');
 
 // Global settings
 global.packname = settings.packname;
@@ -333,6 +334,9 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.help' || userMessage === '.menu' || userMessage === '.bot' || userMessage === '.list':
                 await helpCommand(sock, chatId, message, global.channelLink);
                 commandExecuted = true;
+                break;
+            case userMessage === '.settings':
+                await settingsCommand(sock, chatId, message);
                 break;
             case userMessage === '.sticker' || userMessage === '.s':
                 await stickerCommand(sock, chatId, message);
