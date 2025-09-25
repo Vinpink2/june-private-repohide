@@ -1,3 +1,6 @@
+
+
+
 const settings = require('./settings');
 require('./config.js');
 const { isBanned } = require('./lib/isBanned');
@@ -12,6 +15,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const { isSudo } = require('./lib/index');
 const { autotypingCommand, isAutotypingEnabled, handleAutotypingForMessage, handleAutotypingForCommand, showTypingAfterCommand } = require('./commands/autotyping');
 const { autoreadCommand, isAutoreadEnabled, handleAutoread } = require('./commands/autoread');
+const getppCommand =require('./commands/getpp');
 
 // Command imports
 const tagAllCommand = require('./commands/tagall');
@@ -609,6 +613,11 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.ping':
                 await pingCommand(sock, chatId, message);
                 break;
+
+           case userMessage === '.getpp':
+               await getppCommand(sock, chatId, message);
+              break;
+                
             case userMessage === '.alive':
                 await aliveCommand(sock, chatId, message);
                 break;
