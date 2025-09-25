@@ -90,6 +90,7 @@ async function helpCommand(sock, chatId, message) {
 ┏❐ \`SETTING MENU\` ❐
 ┃➤ .mode
 ┃➤ .autostatus
+┃➤ .pmblock
 ┃➤ .autoread
 ┃➤ .clearsession
 ┃➤ .antidelete
@@ -99,7 +100,6 @@ async function helpCommand(sock, chatId, message) {
 ┃➤ .setpp
 ┃➤ .autobio
 ┃➤ .autotyping 
-┃➤ .autorecording 
 ┗❐
 
 ┏❐ \`STICK MENU\` ❐
