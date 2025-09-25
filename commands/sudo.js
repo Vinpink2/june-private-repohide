@@ -55,7 +55,7 @@ async function sudoCommand(sock, chatId, message) {
     if (sub === 'del' || sub === 'remove') {
         const ownerJid = settings.ownerNumber + '@s.whatsapp.net';
         if (targetJid === ownerJid) {
-            await sock.sendMessage(chatId, { text: 'Owner cannot be removed.'},{ quoted: message } });
+            await sock.sendMessage(chatId, { text: 'Owner cannot be removed.'},{ quoted: message });
             return;
         }
         const ok = await removeSudo(targetJid);
