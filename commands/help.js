@@ -145,6 +145,20 @@ async function helpCommand(sock, chatId, message) {
 ┃➤ .stupid
 ┗❐
 
+┏❐ \`ANIME\` ❐
+┃➤ .neko
+┃➤ .waifu
+┃➤ .loli
+┃➤ .nom 
+┃➤ .poke 
+┃➤ .cry 
+┃➤ .kiss 
+┃➤ .pat 
+┃➤ .hug 
+┃➤ .wink 
+┃➤ .facepalm 
+┗❐
+
 ┏❐ \`MAKER MENU\` ❐
 ┃➤ .metallic 
 ┃➤ .ice 
