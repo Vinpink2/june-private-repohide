@@ -89,7 +89,7 @@ async function urlCommand(sock, chatId, message) {
             return;
         }
 
-        await sock.sendMessage(chatId, { text: `Your Url: ${url}\n> 🏂June md` }, { quoted: message });
+        await sock.sendMessage(chatId, { text: `Your Url: ${url}\n\n> 🏂June md urls` }, { quoted: message });
     } catch (error) {
         console.error('[URL] error:', error?.message || error);
         await sock.sendMessage(chatId, { text: 'Failed to convert media to URL.' }, { quoted: message });
