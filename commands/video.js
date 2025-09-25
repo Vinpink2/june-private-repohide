@@ -83,7 +83,7 @@ async function videoCommand(sock, chatId, message) {
             if (thumb) {
                 await sock.sendMessage(chatId, {
                     image: { url: thumb },
-                    caption: `*${captionTitle}*\nDownloading...`
+                    caption: `*${captionTitle}*\n> _🏂searching video data..._`
                 }, { quoted: message });
             }
         } catch (e) { console.error('[VIDEO] thumb error:', e?.message || e); }
