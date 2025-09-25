@@ -91,6 +91,8 @@ async function helpCommand(sock, chatId, message) {
 ┃➤ .mode
 ┃➤ .autostatus
 ┃➤ .pmblock
+┃➤ .setmention
+┃➤ .mention
 ┃➤ .autoread
 ┃➤ .clearsession
 ┃➤ .antidelete
@@ -145,7 +147,7 @@ async function helpCommand(sock, chatId, message) {
 ┃➤ .stupid
 ┗❐
 
-┏❐ \`ANIME\` ❐
+┏❐ \`ANIME MENU\` ❐
 ┃➤ .neko
 ┃➤ .waifu
 ┃➤ .loli
