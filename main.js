@@ -120,14 +120,14 @@ const getppCommand = require('./commands/getpp');
 const gitcloneCommand = require('./commands/gitclone');
 const settingsCommand = require('./commands/settings');
 const { pmblockerCommand, readState: readPmBlockerState } = require('./commands/pmblocker');
-
+const { anticallCommand, readState: readAnticallState } = require('./commands/anticall');
 
 
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
 global.channelLink = "https://whatsapp.com/channel/0029Va90zAnIHphOuO8Msp3A";
-global.ytch = "Mr Unique Hacker";
+global.ytch = "supreme";
 
 // Add this near the top of main.js with other global configurations
 const channelInfo = {
@@ -345,6 +345,10 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 if (!message.key.fromMe && !senderIsSudo) {
                     await sock.sendMessage(chatId, { text: 'Only owner/sudo can use pmblocker.' }, { quoted: message });
                     commandExecuted = true;
+                    break;
+            case userMessage.startsWith('.anticall'):
+                if (!message.key.fromMe && !senderIsSudo) {
+                    await sock.sendMessage(chatId, { text: 'Only owner/sudo can use anticall.' }, { quoted: message });
                     break;
 
                 
