@@ -5,7 +5,7 @@ const isAdmin = require('../lib/isAdmin');
 async function handleAntilinkCommand(sock, chatId, userMessage, senderId, isSenderAdmin) {
     try {
         if (!isSenderAdmin) {
-            await sock.sendMessage(chatId, { text: '```For Group Admins Only!```' });
+            await sock.sendMessage(chatId, { text: 'For Group Admins Only!' });
             return;
         }
 
@@ -14,7 +14,7 @@ async function handleAntilinkCommand(sock, chatId, userMessage, senderId, isSend
         const action = args[0];
 
         if (!action) {
-            const usage = `\`\`\`ANTILINK SETUP\n\n${prefix}antilink on\n${prefix}antilink set delete | kick | warn\n${prefix}antilink off\n\`\`\``;
+            const usage = `ANTILINK SETUP\n\n🔹${prefix}antilink on\n🔹${prefix}antilink set delete | kick | warn\n🔹${prefix}antilink off\n`;
             await sock.sendMessage(chatId, { text: usage });
             return;
         }
