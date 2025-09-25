@@ -117,7 +117,7 @@ const updateCommand = require('./commands/update');
 const removebgCommand = require('./commands/removebg');
 const { reminiCommand } = require('./commands/remini');
 const getppCommand = require('./commands/getpp');
-const gitcloneCommand = require('./gitclone');
+const gitcloneCommand = require('./commands/gitclone');
 
 // Global settings
 global.packname = settings.packname;
