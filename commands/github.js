@@ -17,13 +17,14 @@ async function githubCommand(sock, chatId, message) {
     txt += `🔸  *Size* : ${(json.size / 1024).toFixed(2)} MB\n`;
     txt += `🔸  *Last Updated* : ${moment(json.updated_at).format('DD/MM/YY - HH:mm:ss')}\n`;
     txt += `🔸  *REPO* : ${json.html_url}\n`;
-    txt += `🔸  *Forks* : ${json.forks_count}\n`;
-    txt += `🔸  *Stars* : ${json.stargazers_count}\n`;
-    txt += `🔸  Dont Forget to fork & star⭐ The Repo \n\n`;
+    
+    txt += `🔹  *Forks* : ${json.forks_count}\n`;
+    txt += `🔹  *Stars* : ${json.stargazers_count}\n`;
+    txt += `🔹  Dont Forget to fork & star⭐ The Repo \n\n`;
     txt += `> _⎋June Md_`;
 
     // Use the local asset image
-    const imgPath = path.join(__dirname, '../assets/june_repos.jpg');
+    const imgPath = path.join(__dirname, '../assets/menu.jpg');
     const imgBuffer = fs.readFileSync(imgPath);
 
     await sock.sendMessage(chatId, { image: imgBuffer, caption: txt }, { quoted: message });
