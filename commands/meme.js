@@ -16,7 +16,7 @@ async function memeCommand(sock, chatId, message) {
 
             await sock.sendMessage(chatId, { 
                 image: imageBuffer,
-                caption: "> Here's your cheems meme! 🐕",
+                caption: "_Here's your  meme! 💀_",
                 buttons: buttons,
                 headerType: 1
             },{ quoted: message});
