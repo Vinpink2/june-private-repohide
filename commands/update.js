@@ -196,7 +196,7 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
     }
     try {
         // Minimal UX
-        await sock.sendMessage(chatId, { text: '_Updating bot database.,please wait…_' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '_Updating bot database. please wait…_' }, { quoted: message });
         if (await hasGitRepo()) {
             // silent
             const { oldRev, newRev, alreadyUpToDate, commits, files } = await updateViaGit();
