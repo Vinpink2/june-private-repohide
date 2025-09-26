@@ -28,7 +28,7 @@ async function songCommand(sock, chatId, message) {
         // Inform user
         await sock.sendMessage(chatId, {
             image: { url: video.thumbnail },
-            caption: `🎵 Downloading: *${video.title}*\n⏱ Duration: ${video.timestamp}`
+            caption: `🎵 Downloading: *${video.title}*\n🏂 Durration time: ${video.timestamp}`
         }, { quoted: message });
 
         // Get Izumi API link
