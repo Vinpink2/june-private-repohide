@@ -241,12 +241,11 @@ async function startXeonBotInc() {
             const botNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await XeonBotInc.sendMessage(botNumber, {
                 text: `
-┏━❑
-❑ June md Bot Connected.
+┏━━━❑ JUNE CONNECTED ❒
 ❒ Time: ${new Date().toLocaleString()}
 ❒ Prefix: [.]
-❑ Online.
-┗━❒`,
+❑ Status: Active ✅
+┗━━━❒`,
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: false,
