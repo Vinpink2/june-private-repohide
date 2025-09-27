@@ -191,7 +191,7 @@ async function restartProcess(sock, chatId, message) {
 
 async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
     if (!message.key.fromMe && !senderIsSudo) {
-        await sock.sendMessage(chatId, { text: 'Only bot owner or sudo can use .update' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: 'Only bot owner or sudo can use .restart or .Start command' }, { quoted: message });
         return;
     }
     try {
