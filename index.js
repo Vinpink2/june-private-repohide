@@ -170,12 +170,13 @@ async function startXeonBotInc() {
     });
 
     XeonBotInc.ev.on('connection.update', async ({ connection, lastDisconnect }) => {
-        if (connection === 'open') console.log(chalk.blue.bold('Bot connected ✔︎'));
-                console.log(chalk.magenta(` `))
+        if (connection === 'open') 
+        console.log(chalk.blue('June md connected'));
+        console.log(chalk.magenta(`GITHUB: Vinpink2`))
         console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
-            const number = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
-            await XeonBotInc.sendMessage(number, {
-                text: `June md Bot`});
+            const pNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
+            await XeonBotInc.sendMessage(pNumber, {
+                text: `June md Bot connected successfully`});
         if (connection === 'close') {
             const statusCode = lastDisconnect?.error?.output?.statusCode;
             if (statusCode === DisconnectReason.loggedOut || statusCode === 401) rmSync('./session', { recursive: true, force: true });
