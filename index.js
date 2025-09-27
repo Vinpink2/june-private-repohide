@@ -177,7 +177,7 @@ async function startXeonBotInc() {
 
 
         
-        console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
+        console.log(chalk.green(`🏂Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             const pNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await XeonBotInc.sendMessage(pNumber, {
                 text: `
