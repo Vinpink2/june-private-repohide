@@ -16,7 +16,7 @@ async function promoteCommand(sock, chatId, mentionedJids, message) {
     // If no user found through either method
     if (userToPromote.length === 0) {
         await sock.sendMessage(chatId, { 
-            text: 'Please mention the user or reply to their message to promote!'
+            text: 'Please mention the user or reply to their message to promote!',quoted: message
         });
         return;
     }
@@ -31,7 +31,7 @@ async function promoteCommand(sock, chatId, mentionedJids, message) {
         const promoterJid = message.key.participant || message.key.remoteJid;
 
         const promotionMessage = 
-            `*🏂 PROMOTION 🏂*\n\n` +
+            `*✧ 🏂 PROMOTION 🏂 ✧*\n\n` +
             `✧ *Promoted User${userToPromote.length > 1 ? 's' : ''}:*\n` +
             `${usernames.map(name => `• ${name}`).join('\n')}\n\n` +
             `✧ *Promoted By:* @${promoterJid.split('@')[0]}\n\n` +
@@ -43,7 +43,7 @@ async function promoteCommand(sock, chatId, mentionedJids, message) {
         });
     } catch (error) {
         console.error('Error in promote command:', error);
-        await sock.sendMessage(chatId, { text: 'Failed to promote user(s)!'});
+        await sock.sendMessage(chatId, { text: 'Failed to promote user(s)!'},{ quoted: message });
     }
 }
 
