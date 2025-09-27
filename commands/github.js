@@ -18,9 +18,8 @@ async function githubCommand(sock, chatId, message) {
     txt += `🔸  *Last Updated* : ${moment(json.updated_at).format('DD/MM/YY - HH:mm:ss')}\n`;
     txt += `🔸  *REPO* : ${json.html_url}\n\n`;    
     txt += `🔹  *Forks* : ${json.forks_count}\n`;
-    txt += `🔹  *desc* : ${json.description || 'None'}\n`;
     txt += `🔹  *Stars* : ${json.stargazers_count}\n`;
-    txt += `🔹  Dont forget to fork & star⭐ the repository\n\n`;
+    txt += `🔹  *Desc* : ${json.description || 'None'}\n\n`;
     txt += `> _Thank you for choosing June Md_`;
 
     // Use the local asset image
