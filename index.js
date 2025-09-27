@@ -180,7 +180,13 @@ async function startXeonBotInc() {
         console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             const pNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await XeonBotInc.sendMessage(pNumber, {
-                text: `June md Bot connected successfully`});
+                text: `
+┏━━━━━✧ CONNECTED ✧
+┃✧ Prefix: [.]
+┃✧ Bot: 𝐉ᴜɴᴇ 𝐌ᴅ
+┃✧ Status: Active
+┃✧ Time: ${new Date().toLocaleString()}
+┗━━━`});
 
         
         if (connection === 'close') {
