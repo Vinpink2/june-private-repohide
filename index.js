@@ -174,7 +174,7 @@ async function startXeonBotInc() {
         console.log(chalk.blue('June md connected'));        
         console.log(chalk.magenta(`GITHUB: Vinpink2`))
         
-        
+        await delay(1999)
         console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
 
         
