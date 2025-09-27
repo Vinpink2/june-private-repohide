@@ -94,7 +94,7 @@ async function getLoginMethod() {
     } else if (choice === '2') {
         let sessionId = await question(chalk.bgBlack(chalk.greenBright(`Paste your Session ID here: `)));
         sessionId = sessionId.trim();
-        if (!sessionId.includes("JUNE:~")) { console.log(chalk.red("Invalid Session ID format!")); process.exit(1); }
+        if (!sessionId.includes("JUNE-MD:~")) { console.log(chalk.red("Invalid Session ID format!")); process.exit(1); }
         global.SESSION_ID = sessionId;
         await saveLoginMethod('session');
         return 'session';
@@ -109,7 +109,7 @@ async function downloadSessionData() {
     try {
         await fs.promises.mkdir(sessionDir, { recursive: true });
         if (!fs.existsSync(credsPath) && global.SESSION_ID) {
-            const base64Data = global.SESSION_ID.split("JUNE:~")[1];
+            const base64Data = global.SESSION_ID.split("JUNE-MD:~")[1];
             const sessionData = Buffer.from(base64Data, 'base64');
             await fs.promises.writeFile(credsPath, sessionData);
             console.log(chalk.green(`Session successfully saved.`));
