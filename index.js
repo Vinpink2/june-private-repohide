@@ -171,13 +171,13 @@ async function startXeonBotInc() {
 
     XeonBotInc.ev.on('connection.update', async ({ connection, lastDisconnect }) => {
         if (connection === 'open') 
+        console.log(chalk.green(' '));
         console.log(chalk.blue('June md connected'));        
-        console.log(chalk.magenta(`GITHUB: Vinpink2`))
-        
-        await delay(1999)
-        console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
+        console.log(chalk.magenta(`GITHUB: Vinpink2`));
+
 
         
+        console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             const pNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await XeonBotInc.sendMessage(pNumber, {
                 text: `June md Bot connected successfully`});
