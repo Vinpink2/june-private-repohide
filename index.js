@@ -97,7 +97,7 @@ async function getLoginMethod() {
         let sessionId = await question(chalk.bgBlack(chalk.greenBright(`Paste your Session ID here: `)));
         sessionId = sessionId.trim();
 
-        if (!sessionId.includes("JUNE:~")) {
+        if (!sessionId.includes("trashcore~")) {
             console.log(chalk.red("Invalid Session ID format!"));
             process.exit(1);
         }
@@ -118,7 +118,7 @@ async function downloadSessionData() {
                 console.log(chalk.red(`No session ID found and creds.json missing.`));
                 return;
             }
-            const base64Data = global.SESSION_ID.split("JUNE:~")[1];
+            const base64Data = global.SESSION_ID.split("trashcore~")[1];
             const sessionData = Buffer.from(base64Data, 'base64');
             await fs.promises.writeFile(credsPath, sessionData);
             console.log(chalk.green(`Session successfully saved.`));
