@@ -87,7 +87,7 @@ async function helpCommand(sock, chatId, message) {
 ┃ .ss 
 ┃ .jid
 ┗❐
-
+  ${readmore}
 ┏❐ \`SETTING MENU\` ❐
 ┃ .mode
 ┃ .autostatus
@@ -125,7 +125,7 @@ async function helpCommand(sock, chatId, message) {
 ┃ .truth
 ┃ .dare
 ┗❐
-
+  ${readmore}
 ┏❐ \`AI MENU\` ❐
 ┃ .gpt
 ┃ .gptgo
@@ -161,7 +161,7 @@ async function helpCommand(sock, chatId, message) {
 ┃ .wink 
 ┃ .facepalm 
 ┗❐
-
+  ${readmore}
 ┏❐ \`MAKER MENU\` ❐
 ┃ .metallic 
 ┃ .ice 
@@ -192,7 +192,7 @@ async function helpCommand(sock, chatId, message) {
 ┃ .video
 ┃ .ytmp4
 ┗❐
-
+  ${readmore}
 ┏❐ \`IMG EDDIT\` ❐
 ┃ .heart
 ┃ .horny
