@@ -123,10 +123,10 @@ async function requestPairingCode(socket) {
         let code = await socket.requestPairingCode(global.phoneNumber);
         code = code?.match(/.{1,4}/g)?.join("-") || code;
         console.log(chalk.bgGreen.black(`\nYour Pairing Code: ${code}\n`));
-        console.log(chalk.yellow(`
+        console.log(chalk.green(`
 Please enter this code in WhatsApp app:
 1. Open WhatsApp
-2. Go to Settings > Linked Devices
+2. Go to Settings => Linked Devices
 3. Tap "Link a Device"
 4. Enter the code shown above
         `));
@@ -186,7 +186,7 @@ async function startXeonBotInc() {
 ┃✧ Bot: 𝐉ᴜɴᴇ 𝐌ᴅ
 ┃✧ Status: Active
 ┃✧ Time: ${new Date().toLocaleString()}
-┗━━━`});
+┗━━━━━━━━━━━━━━━━━━━`});
 
         
         if (connection === 'close') {
