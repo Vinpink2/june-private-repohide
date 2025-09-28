@@ -1,3 +1,8 @@
+//session-id
+
+global.SESSION_ID = process.env.SESSION_ID || ''
+
+
 const settings = {
   packname: '𝐉ᴜɴᴇ 𝐌ᴅ',
   author: '‎',
