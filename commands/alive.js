@@ -23,8 +23,9 @@ async function aliveCommand(sock, chatId, message) {
         }, { quoted: message });
         
         //send audio
+        const audioPath = path.join(__dirname, '../assets/audio.mp3');
          sock.sendMessage(chatId, {
-                        audio: {url:'https://url.bwmxmd.online/Adams.0eltfmev.mp3'},
+                        audio: audioPath,
                         mimetype: 'audio/mp4',
                         ptt: false
                     }, {
