@@ -1,19 +1,15 @@
 const settings = require("../settings");
 async function aliveCommand(sock, chatId, message) {
     try {
-        const message1 = `*🤖 Knight Bot is Active!*\n\n` +
+        const message1 =
                        `*Version:* ${settings.version}\n` +
                        `*Status:* Online\n` +
                        `*Mode:* Public\n\n` +
-                       `*🌟 Features:*\n` +
-                       `• Group Management\n` +
-                       `• Antilink Protection\n` +
-                       `• Fun Commands\n` +
-                       `• And more!\n\n` +
                        `Type *.menu* for full command list`;
 
         await sock.sendMessage(chatId, {
             text: message1,
+            image: {url: },
              hasMediaAttachment: true,
             contextInfo: {
                 forwardingScore: 999,
