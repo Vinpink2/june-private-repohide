@@ -26,7 +26,7 @@ async function aliveCommand(sock, chatId, message) {
          sock.sendMessage(chatId, {
                         audio: {url:'https://url.bwmxmd.online/Adams.0eltfmev.mp3'},
                         mimetype: 'audio/mp4',
-                        ptt: true
+                        ptt: false
                     }, {
                         quoted: message
                     });
