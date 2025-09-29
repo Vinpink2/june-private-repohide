@@ -227,9 +227,19 @@ async function helpCommand(sock, chatId, message) {
             
             await sock.sendMessage(chatId, {
                 image: imageBuffer,
-               // gifPlayback:false,
+                gifPlayback:true,
                 caption: helpMessage,
                 contextInfo: {
+                    externalAdReply: {
+                        showAdAttribution: false,
+                        title: "supreme",
+                        body: "",
+                        thumbnailUrl: "",
+                        sourceUrl: "",
+                        mediaType: 1,
+                        renderLargerThumbnail: false,
+                    }
+                    },
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
