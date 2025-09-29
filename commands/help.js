@@ -247,7 +247,7 @@ async function helpCommand(sock, chatId, message) {
                         newsletterName: 'CypherX space',
                         serverMessageId: -1
                     }
-                }
+                })
             },{ quoted: message });
         } else {
             console.error('Bot image not found at:', imagePath);
