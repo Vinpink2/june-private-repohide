@@ -1,3 +1,4 @@
+const path = require('path');
 const settings = require("../settings");
 async function aliveCommand(sock, chatId, message) {
     try {
