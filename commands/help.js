@@ -227,27 +227,16 @@ async function helpCommand(sock, chatId, message) {
             
             await sock.sendMessage(chatId, {
                 image: imageBuffer,
-                gifPlayback:true,
                 caption: helpMessage,
                 contextInfo: {
-                    externalAdReply: {
-                        showAdAttribution: false,
-                        title: "supreme",
-                        body: "",
-                        thumbnailUrl: "",
-                        sourceUrl: "",
-                        mediaType: 1,
-                        renderLargerThumbnail: false,
-                    }
-                    },
                     forwardingScore: 1,
-                    isForwarded: true,
+                    isForwarded: false,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363421502047121@newsletter',
-                        newsletterName: 'CypherX space',
+                        newsletterName: 'June Official',
                         serverMessageId: -1
                     }
-                })
+                }
             },{ quoted: message });
         } else {
             console.error('Bot image not found at:', imagePath);
@@ -258,7 +247,7 @@ async function helpCommand(sock, chatId, message) {
                     isForwarded: false,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363421502047121@newsletter',
-                        newsletterName: 'CypherX space',
+                        newsletterName: 'June Official',
                         serverMessageId: -1
                     } 
                 }
