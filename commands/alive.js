@@ -14,7 +14,6 @@ async function aliveCommand(sock, chatId, message) {
 
         await sock.sendMessage(chatId, {
             text: message1,
-            footer: "Simple Bot",
              hasMediaAttachment: true,
             contextInfo: {
                 forwardingScore: 999,
