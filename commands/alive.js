@@ -10,8 +10,8 @@ async function aliveCommand(sock, chatId, message) {
 
         await sock.sendMessage(chatId, {
             text: message1,
-            image: { url: "https://files.catbox.moe/6tli51.jpg" },
-            hasMediaAttachment: true,
+            //image: { url: "https://files.catbox.moe/6tli51.jpg" },
+           // hasMediaAttachment: true,
             contextInfo: {
                 forwardingScore: 99,
                 remoteJid: "status@broadcast",
@@ -28,7 +28,7 @@ async function aliveCommand(sock, chatId, message) {
      sock.sendMessage(chatId, {
                         audio: { url: "https://files.catbox.moe/qpnk2b.mp3" },
                         mimetype: 'audio/mp4',
-                        ptt: true
+                        ptt: false
                     }, {
                         quoted: message
                     });
