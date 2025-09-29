@@ -24,9 +24,8 @@ async function aliveCommand(sock, chatId, message) {
         }, { quoted: message });
         
         //send audio
-        const audioPath = path.join(__dirname, '../assets/audio.mp3');
-         sock.sendMessage(chatId, {
-                        audio: audioPath,
+     sock.sendMessage(chatId, {
+                        audio: {url: "https://files.catbox.moe/qpnk2b.mp3"},
                         mimetype: 'audio/mp4',
                         ptt: false
                     }, {
