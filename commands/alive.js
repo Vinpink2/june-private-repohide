@@ -6,7 +6,7 @@ async function aliveCommand(sock, chatId, message) {
                        `*VERSION:* ${settings.version}\n` +
                        `*STATUS:* Online\n` +
                        `*MODE:* Public\n\n` +
-                       `TYPE *.menu* for full commands`;
+                       `TYPE *.menu* for full commands\n\n🌙June-md is alive🏂`;
 
         await sock.sendMessage(chatId, {
             text: message1,
