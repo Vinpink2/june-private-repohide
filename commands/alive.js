@@ -5,11 +5,11 @@ async function aliveCommand(sock, chatId, message) {
                        `*Version:* ${settings.version}\n` +
                        `*Status:* Online\n` +
                        `*Mode:* Public\n\n` +
-                       `Type *.menu* for full command list`;
+                       `Type *.menu* for full commands`;
 
         await sock.sendMessage(chatId, {
             text: message1,
-            image: {url: },
+            image: {url: 'https://files.catbox.moe/6tli51.jpg' },
              hasMediaAttachment: true,
             contextInfo: {
                 forwardingScore: 999,
