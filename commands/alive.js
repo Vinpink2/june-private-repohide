@@ -9,8 +9,7 @@ async function aliveCommand(sock, chatId, message) {
 
         await sock.sendMessage(chatId, {
             text: message1,
-            image: {url: 'https://files.catbox.moe/6tli51.jpg' },
-             hasMediaAttachment: true,
+            hasMediaAttachment: true,
             contextInfo: {
                 forwardingScore: 999,
                 remoteJid: "status@broadcast",
