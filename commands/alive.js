@@ -2,18 +2,18 @@ const settings = require("../settings");
 async function aliveCommand(sock, chatId, message) {
     try {
         const message1 =
-                       `*Version:* ${settings.version}\n` +
-                       `*Status:* Online\n` +
-                       `*Mode:* Public\n\n` +
-                       `Type *.menu* for full commands`;
+                       `*VERSION:* ${settings.version}\n` +
+                       `*STATUS:* Online\n` +
+                       `*MODE:* Public\n\n` +
+                       `TYPE *.menu* for full commands`;
 
         await sock.sendMessage(chatId, {
             text: message1,
             hasMediaAttachment: true,
             contextInfo: {
-                forwardingScore: 999,
+                forwardingScore: 99,
                 remoteJid: "status@broadcast",
-                isForwarded: true, 
+                isForwarded: false, 
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '',
                     newsletterName: ' MD',
