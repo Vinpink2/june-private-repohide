@@ -169,7 +169,7 @@ async function getLoginMethod() {
     choice = choice.trim();
 
     if (choice === '1') {
-        let phone = await question(chalk.bgBlack(chalk.greenBright(`Enter your WhatsApp number (e.g., 6281376552730): `)));
+        let phone = await question(chalk.bgBlack(chalk.greenBright(`Enter your WhatsApp number (e.g., 254798570132): `)));
         phone = phone.replace(/[^0-9]/g, '');
         const pn = require('awesome-phonenumber');
         if (!pn('+' + phone).isValid()) { console.log(chalk.red('Invalid phone number.')); return getLoginMethod(); }
@@ -211,7 +211,7 @@ async function requestPairingCode(socket) {
         let code = await socket.requestPairingCode(global.phoneNumber);
         code = code?.match(/.{1,4}/g)?.join("-") || code;
         console.log(chalk.bgGreen.black(`\nYour Pairing Code: ${code}\n`));
-        console.log(chalk.green(`
+        console.log(chalk.bgGreen(`
 Please enter this code in WhatsApp app:
 1. Open WhatsApp
 2. Go to Settings => Linked Devices
