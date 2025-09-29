@@ -30,10 +30,9 @@ async function promoteCommand(sock, chatId, mentionedJids, message) {
         const promoterJid = message.key.participant || message.key.remoteJid;
 
         const promotionMessage = 
-            `*✧ 🏂 PROMOTION 🏂 ✧*\n\n` +
             `✧ *Promoted User${userToPromote.length > 1 ? 's' : ''}:*\n` +
-            `${usernames.map(name => `• ${name}`).join('\n')}\n\n` +
-            `✧ *Promoted By:* @${promoterJid.split('@')[0]}\n\n` +
+            `${usernames.map(name => `• ${name}`).join('\n')}\n` +
+            `✧ *Promoted By:* @${promoterJid.split('@')[0]}\n` +
             `✧ *Date:* ${new Date().toLocaleString()}`;
 
         await sock.sendMessage(chatId, { 
@@ -65,10 +64,9 @@ async function handlePromotionEvent(sock, groupId, participants, author) {
         const promotedUsernames = participants.map(jid => `@${jid.split('@')[0]}`);
 
         const promotionMessage = 
-            `*🏂 PROMOTION 🏂*\n\n` +
             `✧ *Promoted User${participants.length > 1 ? 's' : ''}:*\n` +
-            `${promotedUsernames.map(name => `• ${name}`).join('\n')}\n\n` +
-            `✧ *Promoted By:* @${author.split('@')[0]}\n\n` +
+            `${promotedUsernames.map(name => `• ${name}`).join('\n')}\n` +
+            `✧ *Promoted By:* @${author.split('@')[0]}\n` +
             `✧ *Date:* ${new Date().toLocaleString()}`;
 
         await sock.sendMessage(groupId, {
