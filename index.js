@@ -669,7 +669,7 @@ async function tylor() {
     
     // 1. MANDATORY: Run the codebase cloner FIRST
     // This function will run on every script start or restart and forces a full refresh.
-    await downloadAndSetupCodebase();
+    //await downloadAndSetupCodebase();
     
     // *************************************************************
     // *** CRITICAL: REQUIRED FILES MUST BE LOADED AFTER CLONING ***
