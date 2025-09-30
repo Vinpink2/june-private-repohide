@@ -1,15 +1,16 @@
 const settings = {
-  // Session Configuration
-  sessionId: process.env.SESSION_ID || "Caseyrhodes~YOUR_SESSION_ID_HERE",
-  packname: 'JINX-XMD',
+  packname: '𝐉ᴜɴᴇ 𝐌ᴅ',
   author: '‎',
-  botName: "JINX-XMD",
-  botOwner: 'Professor',
-  ownerNumber: '254112192119',
+  botName: "𝐉ᴜɴᴇ 𝐌ᴅ",
+  botOwner: 'supreme', // Your name
+  ownerNumber: '254798570132', //Set your number here without + symbol, just add country code & number without any space
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
+  maxStoreMessages: 20, 
+  storeWriteInterval: 10000,
   description: "This is a bot for managing group commands and automating tasks.",
-  version: "2.0.6",
+  version: "2.5.1",
+  updateZipUrl: "https://github.com/vinpink2/june-private-repohide/archive/refs/heads/main.zip",
 };
 
 module.exports = settings;
