@@ -1,7 +1,10 @@
-/**
- * June MD - A WhatsApp Bot
- * Copyright (c) 2024 Professor
- * 
+/*
+**************************************
+ * June MD - A WhatsApp Bot    *
+ * Copyright (c) 2025*******
+****************************************
+
+ 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the MIT License.
  * 
@@ -9,6 +12,8 @@
  * - Baileys Library by @adiwajshing
  * - Pair Code implementation inspired by TechGod143 & DGXEON
  */
+
+
 require('./settings')
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
@@ -81,7 +86,7 @@ const store = {
     }
 }
 
-let phoneNumber = "254112192119"
+let phoneNumber = "254798570132"
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 
 global.botname = "JUNE MD BOT"
@@ -114,7 +119,7 @@ async function downloadSessionIfNeeded() {
     
     // Check if session already exists
     if (!fs.existsSync(sessionPath)) {
-        console.log(chalk.yellow('[⚠️] No session found. Please scan QR code to create new session.'));
+        console.log(chalk.yellow('[⚠️] No session found.'));
         return false;
     }
     
@@ -178,7 +183,7 @@ async function startJuneBotInc() {
                             forwardingScore: 1,
                             isForwarded: true,
                             forwardedNewsletterMessageInfo: {
-                                newsletterJid: '120363302677217436@newsletter',
+                                newsletterJid: '@newsletter',
                                 newsletterName: 'JUNE MD',
                                 serverMessageId: -1
                             }
@@ -278,7 +283,7 @@ async function startJuneBotInc() {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363302677217436@newsletter',
+                        newsletterJid: '@newsletter',
                         newsletterName: 'JUNE MD',
                         serverMessageId: -1
                     }
@@ -286,12 +291,8 @@ async function startJuneBotInc() {
             });
 
             await delay(1999)
-            console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'JUNE MD BOT'} ]`)}\n\n`))
-            console.log(chalk.cyan(`< ================================================== >`))
-            console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: MR HACKER`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: caseyweb`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: CASEYRHODES`))
+            console.log(chalk.yellow(`\n\n ${chalk.bold.blue(`[ ${global.botname || 'JUNE MD BOT'} ]`)}\n\n`))
+            console.log(chalk.blue(`${global.themeemoji || '•'} GIT: VINPINK2`))
             console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
         }
         if (
