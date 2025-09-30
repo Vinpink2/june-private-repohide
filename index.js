@@ -5,7 +5,14 @@
  * * the hidden repo on every startup while ensuring persistence files (session and settings) 
  * * are protected from being overwritten.
  */
+// Anti-crash handler
+process.on("uncaughtException", (err) => {
+  console.error("[❗] Uncaught Exception:", err.stack || err);
+});
 
+process.on("unhandledRejection", (reason, p) => {
+  console.error("[❗] Unhandled Promise Rejection:", reason);
+});
 // --- Environment Setup ---
 require('dotenv').config() // CRITICAL: Load .env variables first!
 
@@ -19,7 +26,7 @@ const chalk = require('chalk')
 const path = require('path')
 // === NEW: For Cloning ===
 const axios = require('axios')
-const AdmZip = require('adm-zip')
+//const AdmZip = require('adm-zip')
 // =========================
 const PhoneNumber = require('awesome-phonenumber')
 // The smsg utility also depends on other files, so we'll move its require statement.
@@ -60,7 +67,7 @@ function log(message, color = 'white', isError = false) {
 }
 // -------------------------------------------
 
-
+/*
 // ----------------------------------------------------------------------
 // === 🔄 CODEBASE CLONING LOGIC (Run on every start/restart) ===
 // ----------------------------------------------------------------------
@@ -79,7 +86,7 @@ const PERSISTENT_FOLDERS = ['session', 'node_modules'];
 
 /**
  * Downloads the codebase and extracts it to the root, while refreshing all other files.
- */
+ 
 async function downloadAndSetupCodebase() {
     try {
         log("╔══════════════════════════", 'cyan');
@@ -175,7 +182,8 @@ async function downloadAndSetupCodebase() {
 // === END OF CLONING LOGIC ===
 // ----------------------------------------------------------------------
 
-
+*/
+    
 // --- GLOBAL FLAGS ---
 global.isBotConnected = false; 
 global.connectDebounceTimeout = null;
