@@ -86,7 +86,7 @@ const store = {
     }
 }
 
-let phoneNumber = settings.ownerNumber
+let phoneNumber =  "254798570132"
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 
 global.botname = "JUNE MD BOT"
@@ -103,7 +103,7 @@ const question = (text) => {
         return new Promise((resolve) => rl.question(text, resolve))
     } else {
         // In non-interactive environment, use ownerNumber from settings
-        return Promise.resolve(phoneNumber)
+        return Promise.resolve(phoneNumber||settings.ownerNumber)
     }
 }
 
