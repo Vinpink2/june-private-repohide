@@ -92,7 +92,7 @@ let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 global.botname = "JUNE MD BOT"
 global.themeemoji = "•"
 
-const settings = require('./settings')
+const { settings,SESSION_ID } = require('./settings')
 const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
 const useMobile = process.argv.includes("--mobile")
 
@@ -277,8 +277,12 @@ async function startJuneBotInc() {
             
             const botNumber = JuneBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await JuneBotInc.sendMessage(botNumber, { 
-                text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!
-                \n✅Make sure to join below channel`,
+                text: `┏━━━━━✧ CONNECTED ✧
+┃✧ Prefix: [.]
+┃✧ Bot: 𝐉ᴜɴᴇ 𝐌ᴅ
+┃✧ Status: Active
+┃✧ Time: ${new Date().toLocaleString()}
+┗━━━━━━━━━━━━━━━━`,
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
