@@ -1,21 +1,17 @@
-//session-id
-
-global.SESSION_ID = process.env.SESSION_ID || ''
-
-
+// Session Configuration
+global.sessionId = process.env.SESSION_ID || "Caseyrhodes~YOUR_SESSION_ID_HERE"; // Replace with your session ID
+global.sessionPath = './sessions'; // Path where session files will be stored
+global.sessionType = 'multi-file'; // 'multi-file' or 'single-file
 const settings = {
-  packname: '𝐉ᴜɴᴇ 𝐌ᴅ',
+  packname: 'JINX-XMD',
   author: '‎',
-  botName: "𝐉ᴜɴᴇ 𝐌ᴅ",
-  botOwner: 'supreme', // Your name
-  ownerNumber: '254798570132', //Set your number here without + symbol, just add country code & number without any space
+  botName: "JINX-XMD",
+  botOwner: 'Professor', // Your name
+  ownerNumber: '254112192119', //Set your number here without + symbol, just add country code & number without any space
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
-  maxStoreMessages: 20, 
-  storeWriteInterval: 10000,
   description: "This is a bot for managing group commands and automating tasks.",
-  version: "2.5.1",
-  updateZipUrl: "https://github.com/vinpink2/june-private-repohide/archive/refs/heads/main.zip",
+  version: "2.0.6",
 };
 
 module.exports = settings;
