@@ -3,8 +3,11 @@
  * June MD - A WhatsApp Bot    *
  * Copyright (c) 2025*******
 ****************************************
-
+*/
  
+require('dotenv').config() // CRITICAL: Load .env variables first!
+
+/*
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the MIT License.
  * 
@@ -111,7 +114,8 @@ const question = (text) => {
 async function downloadSessionIfNeeded() {
     const sessionPath = './sessions/creds.json';
     const sessionDir = './sessions';
-    
+    const envPath = path.join(__dirname, '.env') // Path to the .env file
+ 
     // Create sessions directory if it doesn't exist
     if (!fs.existsSync(sessionDir)) {
         fs.mkdirSync(sessionDir, { recursive: true });
