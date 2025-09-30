@@ -92,7 +92,7 @@ let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 global.botname = "JUNE MD BOT"
 global.themeemoji = "•"
 
-const { settings,SESSION_ID } = require('./settings')
+const settings = require('./settings')
 const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
 const useMobile = process.argv.includes("--mobile")
 
