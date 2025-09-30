@@ -45,6 +45,9 @@ const { PHONENUMBER_MCC } = require('@whiskeysockets/baileys/lib/Utils/generics'
 const { rmSync, existsSync } = require('fs')
 const { join } = require('path')
 
+// Import settings
+const settings = require('./settings')
+
 // Create a store object with required methods
 const store = {
     messages: {},
@@ -81,13 +84,12 @@ const store = {
     }
 }
 
-let phoneNumber = "254112192119"
-let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
+let phoneNumber = settings.owner
+let owner = settings.owner
 
-global.botname = "JUNE MD BOT"
+global.botname = settings.botname
 global.themeemoji = "•"
 
-const settings = require('./settings')
 const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
 const useMobile = process.argv.includes("--mobile")
 
@@ -98,7 +100,7 @@ const question = (text) => {
         return new Promise((resolve) => rl.question(text, resolve))
     } else {
         // In non-interactive environment, use ownerNumber from settings
-        return Promise.resolve(settings.ownerNumber || phoneNumber)
+        return Promise.resolve(settings.owner || phoneNumber)
     }
 }
 
@@ -272,8 +274,7 @@ async function startJuneBotInc() {
             
             const botNumber = JuneBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await JuneBotInc.sendMessage(botNumber, { 
-                text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!
-                \n✅Make sure to join below channel`,
+                text: `🤖 ${settings.botname} Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!\n👤 Owner: ${settings.ownerName}`,
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
@@ -286,11 +287,12 @@ async function startJuneBotInc() {
             });
 
             await delay(1999)
-            console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'JUNE MD BOT'} ]`)}\n\n`))
+            console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${settings.botname} ]`)}\n\n`))
             console.log(chalk.cyan(`< ================================================== >`))
             console.log(chalk.magenta(`\n${global.themeemoji || '•'} YT CHANNEL: MR HACKER`))
             console.log(chalk.magenta(`${global.themeemoji || '•'} GITHUB: caseyweb`))
-            console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${owner}`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} WA NUMBER: ${settings.owner}`))
+            console.log(chalk.magenta(`${global.themeemoji || '•'} OWNER NAME: ${settings.ownerName}`))
             console.log(chalk.magenta(`${global.themeemoji || '•'} CREDIT: CASEYRHODES`))
             console.log(chalk.green(`${global.themeemoji || '•'} 🤖 Bot Connected Successfully! ✅`))
         }
