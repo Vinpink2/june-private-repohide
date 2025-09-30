@@ -86,7 +86,7 @@ const store = {
     }
 }
 
-let phoneNumber = "254798570132"
+let phoneNumber = settings.ownerNumber
 let owner = JSON.parse(fs.readFileSync('./data/owner.json'))
 
 global.botname = "JUNE MD BOT"
