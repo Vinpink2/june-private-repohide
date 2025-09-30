@@ -103,7 +103,7 @@ const question = (text) => {
         return new Promise((resolve) => rl.question(text, resolve))
     } else {
         // In non-interactive environment, use ownerNumber from settings
-        return Promise.resolve(settings.ownerNumber || phoneNumber)
+        return Promise.resolve(phoneNumber || ${settings.ownerNumber})
     }
 }
 
