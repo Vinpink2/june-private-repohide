@@ -139,7 +139,7 @@ function deleteErrorCountFile() {
  */
 function clearSessionFiles() {
     try {
-        log('🗑️ Clearing session files/folder...', 'red');
+        log('🗑️ Clearing session files/folder', 'red');
         // Delete the entire session directory
         rmSync(sessionDir, { recursive: true, force: true });
         // Delete login file if it exists
@@ -640,7 +640,7 @@ async function checkSessionIntegrityAndClean() {
 function checkEnvStatus() {
     try {
         log("╔══════════════════════════", 'magenta');
-        log(`║ 👀 .env file watcher activated at: ${envPath}`, 'magenta');
+        log(`║ .env file watcher activated ║`, 'magenta');
         log("╚══════════════════════════", 'magenta');
         
         // Use persistent: false for better behavior in some hosting environments
