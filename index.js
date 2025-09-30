@@ -34,7 +34,8 @@ const {
     proto,
     jidNormalizedUser,
     makeCacheableSignalKeyStore,
-    delay
+    delay,
+    Browsers
 } = require("@whiskeysockets/baileys")
 const NodeCache = require("node-cache")
 const pino = require("pino")
@@ -101,17 +102,40 @@ const question = (text) => {
     }
 }
 
+// Session download function (if needed)
+async function downloadSessionIfNeeded() {
+    const sessionPath = './sessions/creds.json';
+    const sessionDir = './sessions';
+    
+    // Create sessions directory if it doesn't exist
+    if (!fs.existsSync(sessionDir)) {
+        fs.mkdirSync(sessionDir, { recursive: true });
+    }
+    
+    // Check if session already exists
+    if (!fs.existsSync(sessionPath)) {
+        console.log(chalk.yellow('[⚠️] No session found. Please scan QR code to create new session.'));
+        return false;
+    }
+    
+    console.log(chalk.green('[✅] Session found.'));
+    return true;
+}
          
 async function startJuneBotInc() {
     let { version, isLatest } = await fetchLatestBaileysVersion()
-    const { state, saveCreds } = await useMultiFileAuthState(`./session`)
+    
+    // Check and download session if needed
+    await downloadSessionIfNeeded();
+    
+    const { state, saveCreds } = await useMultiFileAuthState(`./sessions`)
     const msgRetryCounterCache = new NodeCache()
 
     const JuneBotInc = makeWASocket({
         version,
         logger: pino({ level: 'silent' }),
         printQRInTerminal: !pairingCode,
-        browser: ["Ubuntu", "Chrome", "20.0.04"],
+        browser: Browsers.ubuntu('Chrome'),
         auth: {
             creds: state.creds,
             keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -276,7 +300,8 @@ async function startJuneBotInc() {
             lastDisconnect.error &&
             lastDisconnect.error.output.statusCode != 401
         ) {
-            startJuneBotInc()
+            console.log(chalk.yellow('[🔄] Reconnecting...'));
+            setTimeout(startJuneBotInc, 5000)
         }
     })
 
@@ -302,6 +327,7 @@ async function startJuneBotInc() {
 
     return JuneBotInc
 }
+
 // Anti-crash handler
 process.on("uncaughtException", (err) => {
   console.error("[❗] Uncaught Exception:", err.stack || err);
@@ -311,18 +337,10 @@ process.on("unhandledRejection", (reason, p) => {
   console.error("[❗] Unhandled Promise Rejection:", reason);
 });
 
-
 // Start the bot with error handling
 startJuneBotInc().catch(error => {
     console.error('Fatal error:', error)
     process.exit(1)
-})
-process.on('uncaughtException', (err) => {
-    console.error('Uncaught Exception:', err)
-})
-
-process.on('unhandledRejection', (err) => {
-    console.error('Unhandled Rejection:', err)
 })
 
 let file = require.resolve(__filename)
