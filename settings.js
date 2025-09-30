@@ -1,17 +1,25 @@
-// Session Configuration
-global.sessionId = process.env.SESSION_ID || "Caseyrhodes~YOUR_SESSION_ID_HERE"; // Replace with your session ID
-global.sessionPath = './sessions'; // Path where session files will be stored
-global.sessionType = 'multi-file'; // 'multi-file' or 'single-file
-const settings = {
-  packname: 'JINX-XMD',
-  author: '‎',
-  botName: "JINX-XMD",
-  botOwner: 'Professor', // Your name
-  ownerNumber: '254112192119', //Set your number here without + symbol, just add country code & number without any space
-  giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
-  commandMode: "public",
-  description: "This is a bot for managing group commands and automating tasks.",
-  version: "2.0.6",
-};
+/**
+ * June MD - Basic Settings
+ */
 
-module.exports = settings;
+const fs = require('fs');
+
+// Session Configuration
+global.sessionId = process.env.SESSION_ID || "Caseyrhodes~YOUR_SESSION_ID_HERE";
+
+// Owner Configuration
+global.owner = process.env.OWNER_NUMBER || "254112192119";
+global.ownerName = process.env.OWNER_NAME || "CaseyRhodes";
+
+// Bot Configuration
+global.botname = "JUNE MD BOT";
+global.prefix = ".";
+
+// Export settings
+module.exports = {
+    sessionId: global.sessionId,
+    owner: global.owner,
+    ownerName: global.ownerName,
+    botname: global.botname,
+    prefix: global.prefix
+};
