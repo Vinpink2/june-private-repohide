@@ -128,8 +128,8 @@ function copyRecursive(src, dest, ignore = [], relative = '', outList = []) {
 
 async function updateViaZip(sock, chatId, message, zipOverride) {
   
-    //const zipUrl = (zipOverride || settings.updateZipUrl || process.env.UPDATE_ZIP_URL || '').trim();
-     const zipUrl = "https://github.com/vinpink2/june-private-repohide/archive/refs/heads/main.zip";
+    const zipUrl = (zipOverride || settings.updateZipUrl || process.env.UPDATE_ZIP_URL || '').trim();
+    // const zipUrl = "https://github.com/vinpink2/june-private-repohide/archive/refs/heads/main.zip";
     if (!zipUrl) {
         throw new Error('No ZIP URL configured. Set settings.updateZipUrl or UPDATE_ZIP_URL env.');
     }
