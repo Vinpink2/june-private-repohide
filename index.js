@@ -5,14 +5,7 @@
  * * the hidden repo on every startup while ensuring persistence files (session and settings) 
  * * are protected from being overwritten.
  */
-// Anti-crash handler
-process.on("uncaughtException", (err) => {
-  console.error("[❗] Uncaught Exception:", err.stack || err);
-});
 
-process.on("unhandledRejection", (reason, p) => {
-  console.error("[❗] Unhandled Promise Rejection:", reason);
-});
 // --- Environment Setup ---
 require('dotenv').config() // CRITICAL: Load .env variables first!
 
@@ -66,6 +59,17 @@ function log(message, color = 'white', isError = false) {
     }
 }
 // -------------------------------------------
+
+// Anti-crash handler
+process.on("uncaughtException", (err) => {
+  console.error("[❗] Uncaught Exception:", err.stack || err);
+});
+
+process.on("unhandledRejection", (reason, p) => {
+  console.error("[❗] Unhandled Promise Rejection:", reason);
+});
+
+
 
 /*
 // ----------------------------------------------------------------------
