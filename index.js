@@ -631,24 +631,12 @@ async function checkSessionIntegrityAndClean() {
 }
 
 
-// --- 🌟 NEW: .env File Watcher for Automated Restart ---
-/**
- * Monitors the .env file for changes and forces a process restart.
- * Made mandatory to ensure SESSION_ID changes are always picked up.
- * @private 
- */
-function checkEnvStatus() {
-    try {
-        log("╔══════════════════════════", 'magenta');
-        log(`║ .env file watcher activated ║`, 'magenta');
-        log("╚══════════════════════════", 'magenta');
-        
         // Use persistent: false for better behavior in some hosting environments
         // Always set the watcher regardless of the environment
         fs.watch(envPath, { persistent: false }, (eventType, filename) => {
             if (filename && eventType === 'change') {
                 log(chalk.bgRed.black('================================================='), 'white');
-                log(chalk.white.bgRed('🚨 .env file change detected!'), 'white');
+                log(chalk.white.bgRed('.env file change detected!'), 'white');
                 log(chalk.white.bgRed('Forcing a clean restart to apply new configuration (e.g., SESSION_ID).'), 'white');
                 log(chalk.red.bgBlack('================================================='), 'white');
                 
