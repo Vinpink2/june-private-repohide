@@ -765,7 +765,7 @@ async function tylor() {
     }
     
     // 9. Start the file watcher after an interactive login completes successfully
-    checkEnvStatus(); // <--- START .env FILE WATCHER (Mandatory)
+    //checkEnvStatus(); // <--- START .env FILE WATCHER (Mandatory)
 }
 
 // --- Start bot (JUNE MD) ---
