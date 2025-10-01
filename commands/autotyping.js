@@ -86,7 +86,7 @@ async function autotypingCommand(sock, chatId, message) {
                     newsletterName: 'KnightBot MD',
                     serverMessageId: -1
                 }
-            },quoted: message 
+            }
         });
         
     } catch (error) {
