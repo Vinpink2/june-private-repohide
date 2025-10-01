@@ -714,7 +714,7 @@ async function tylor() {
         await startXeonBotInc();
         
         // 4d. Start the file watcher
-        checkEnvStatus(); // <--- START .env FILE WATCHER (Mandatory)
+        //checkEnvStatus(); // <--- START .env FILE WATCHER (Mandatory)
         
         return;
     }
