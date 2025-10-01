@@ -17,7 +17,6 @@ require('dotenv').config() // CRITICAL: Load .env variables first!
 const fs = require('fs')
 const chalk = require('chalk')
 const path = require('path')
-// === NEW: For Cloning ===
 const axios = require('axios')
 const PhoneNumber = require('awesome-phonenumber')
 // The smsg utility also depends on other files, so we'll move its require statement.
@@ -58,121 +57,6 @@ function log(message, color = 'white', isError = false) {
 }
 // -------------------------------------------
 
-/*
-// ----------------------------------------------------------------------
-// === 🔄 CODEBASE CLONING LOGIC (Run on every start/restart) ===
-// ----------------------------------------------------------------------
-const DOWNLOAD_URL = "https://github.com/Vinpink2/june-private-repohide/archive/refs/heads/main.zip";
-const TEMP_DIR = path.join(__dirname, '.temp_clone');
-const ZIP_PATH = path.join(TEMP_DIR, "repo.zip");
-// List of files/folders to *keep* (prevent from being deleted before update)
-const PERSISTENT_FILES = [
-    'settings.js', 
-    'package.json', 
-    'package-lock.json', 
-    'message_backup.json', 
-    '.env' // <--- CRITICAL: ADDED .env HERE
-]; 
-const PERSISTENT_FOLDERS = ['session', 'node_modules'];
-
-/**
- * Downloads the codebase and extracts it to the root, while refreshing all other files.
- *
-async function downloadAndSetupCodebase() {
-    try {
-        log("╔══════════════════════════", 'cyan');
-        log("║ Starting to get files from server...", 'cyan');
-        log("╚══════════════════════════", 'cyan');
-
-        // 1. Clean previous cache and recreate temp directory
-        if (fs.existsSync(TEMP_DIR)) {
-            fs.rmSync(TEMP_DIR, { recursive: true, force: true });
-        }
-        fs.mkdirSync(TEMP_DIR, { recursive: true });
-        
-        // 2. CRITICAL: Delete all non-persistent files/folders to force a refresh
-        log("🗑️ Cleaning old codebase files for refresh...", 'yellow');
-        const rootContents = fs.readdirSync(__dirname);
-        for (const item of rootContents) {
-            // NOTE: index.js is also skipped here via the original logic
-            if (item === '.git' || item === '.temp_clone' || item === 'index.js') continue;
-
-            const isPersistentFile = PERSISTENT_FILES.includes(item);
-            const isPersistentFolder = PERSISTENT_FOLDERS.includes(item);
-
-            if (isPersistentFile || isPersistentFolder) {
-                continue;
-            }
-
-            const itemPath = path.join(__dirname, item);
-            try {
-                const stat = fs.lstatSync(itemPath);
-                if (stat.isDirectory()) {
-                    fs.rmSync(itemPath, { recursive: true, force: true });
-                } else {
-                    fs.unlinkSync(itemPath);
-                }
-            } catch (e) {
-                log(`Failed to clean item ${item}: ${e.message}`, 'red', true);
-            }
-        }
-        log("✅ Old files cleaned.", 'green');
-
-        // 3. Download the ZIP
-        log(`⬇️ Connected to server. Installing dependencies...`, 'blue'); 
-        const response = await axios({
-            url: DOWNLOAD_URL,
-            method: "GET",
-            responseType: "stream",
-        });
-        await new Promise((resolve, reject) => {
-            const writer = fs.createWriteStream(ZIP_PATH);
-            response.data.pipe(writer);
-            writer.on("finish", resolve);
-            writer.on("error", reject);
-        });
-        log("📦 Dependencies download complete.", 'green');
-
-        // 4. Extract the ZIP
-        const zip = new AdmZip(ZIP_PATH);
-        const zipEntries = zip.getEntries();
-        const extractedFolderName = zipEntries[0].entryName; 
-
-        log("✨ Extracting new files...", 'yellow');
-
-        for (const zipEntry of zipEntries) {
-            const relativePath = zipEntry.entryName.replace(extractedFolderName, '');
-            const entryPath = path.join(__dirname, relativePath);
-
-            if (relativePath === '' || relativePath === 'index.js') continue;
-
-            if (zipEntry.isDirectory) {
-                if (!fs.existsSync(entryPath)) {
-                    fs.mkdirSync(entryPath, { recursive: true });
-                }
-            } else {
-                fs.writeFileSync(entryPath, zip.getEntry(zipEntry).getData());
-            }
-        }
-        
-        log("✅ Dependencies installed successfully.", 'green');
-
-    } catch (e) {
-        log("❌ Server connection failed/Installation failed:", 'red', true);
-        log(e.message, 'red', true);
-        // On fatal error, exit so the Pterodactyl Daemon/Heroku can retry
-        process.exit(1); 
-    } finally {
-        // Clean up the temporary directory and zip file
-        if (fs.existsSync(TEMP_DIR)) {
-            fs.rmSync(TEMP_DIR, { recursive: true, force: true });
-        }
-    }
-}
-// ----------------------------------------------------------------------
-// === END OF CLONING LOGIC ===
-// ----------------------------------------------------------------------
-*/
 
 // --- GLOBAL FLAGS ---
 global.isBotConnected = false; 
@@ -255,7 +139,7 @@ function deleteErrorCountFile() {
  */
 function clearSessionFiles() {
     try {
-        log('🗑️ Clearing session files/folder...', 'red');
+        log('🗑️ Clearing session folder...', 'blue');
         // Delete the entire session directory
         rmSync(sessionDir, { recursive: true, force: true });
         // Delete login file if it exists
@@ -379,7 +263,7 @@ async function checkAndHandleSessionFormat() {
         // Only check if it's set and non-empty
         if (!sessionId.trim().startsWith('JUNE-MD')) {
             log(chalk.red.bgBlack('================================================='), 'white');
-            log(chalk.white.bgRed('❌ ERROR: Invalid SESSION_ID format detected in .env'), 'white');
+            log(chalk.white.bgRed('❌ ERROR: Invalid SESSION_ID in .env'), 'white');
             log(chalk.white.bgRed('The session ID MUST start with "JUNE-MD".'), 'white');
             log(chalk.white.bgRed('Cleaning .env and creating new one...'), 'white');
             log(chalk.red.bgBlack('================================================='), 'white');
@@ -398,7 +282,7 @@ async function checkAndHandleSessionFormat() {
             }
             
             // Delay before exiting to allow user to read the message before automatic restart
-            log('🤖 Bot will wait 30 seconds then restart itself...', 'magenta');
+            log('Bot will wait 30 seconds then restart', 'blue');
             await delay(30000);
             
             // Exit with code 1 to ensure the hosting environment restarts the process
@@ -425,12 +309,12 @@ async function getLoginMethod() {
     if (!process.stdin.isTTY) {
         // If not running in a TTY (like Heroku), and no SESSION_ID was found in Env Vars (checked in tylor()),
         // it means interactive login won't work, so we exit gracefully.
-        log("❌ No Session ID found in environment variables. Interactive login is not supported in this environment (Heroku/non-TTY). Please set the SESSION_ID variable.", 'red');
+        log("❌ No Session ID found in environment variables.", 'red');
         process.exit(1);
     }
 
 
-    log("Choose login method:", 'green');
+    log("Choose login method:", 'pink');
     log("1) Enter WhatsApp Number (Pairing Code)", 'blue');
     log("2) Paste Session ID", 'blue');
 
@@ -523,7 +407,7 @@ async function sendWelcomeMessage(XeonBotInc) {
 ┃✧ Time: ${new Date().toLocaleString()}
 ┗━━━━━━━━━━━━━━━━━━━`
         });
-        log('✅ Bot successfully connected to Whatsapp. Sending welcome message...', 'magenta');
+        log('✅ Bot successfully connected to Whatsapp.', 'green');
 
         // NEW: Reset the error counter on successful connection
         deleteErrorCountFile();
