@@ -314,7 +314,7 @@ async function getLoginMethod() {
     }
 
 
-    log("Choose login method:", 'pink');
+    log("Choose login method:", 'yellow');
     log("1) Enter WhatsApp Number (Pairing Code)", 'blue');
     log("2) Paste Session ID", 'blue');
 
