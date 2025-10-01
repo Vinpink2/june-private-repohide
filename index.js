@@ -644,13 +644,13 @@ async function checkSessionIntegrityAndClean() {
                 process.exit(1);
             }
         });
-    } catch (e) {
+ /*   } catch (e) {
         log(`❌ Failed to set up .env file watcher (fs.watch error): ${e.message}`, 'red', true);
         // Do not exit, as the bot can still run, but notify the user
     }
 }
 // -------------------------------------------------------------
-
+*/
 
 // --- Main login flow (JUNE MD) ---
 async function tylor() {
