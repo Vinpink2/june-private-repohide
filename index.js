@@ -19,8 +19,6 @@ const chalk = require('chalk')
 const path = require('path')
 // === NEW: For Cloning ===
 const axios = require('axios')
-const AdmZip = require('adm-zip')
-// =========================
 const PhoneNumber = require('awesome-phonenumber')
 // The smsg utility also depends on other files, so we'll move its require statement.
 // const { smsg } = require('./lib/myfunc') 
@@ -60,7 +58,7 @@ function log(message, color = 'white', isError = false) {
 }
 // -------------------------------------------
 
-
+/*
 // ----------------------------------------------------------------------
 // === 🔄 CODEBASE CLONING LOGIC (Run on every start/restart) ===
 // ----------------------------------------------------------------------
@@ -79,7 +77,7 @@ const PERSISTENT_FOLDERS = ['session', 'node_modules'];
 
 /**
  * Downloads the codebase and extracts it to the root, while refreshing all other files.
- */
+ *
 async function downloadAndSetupCodebase() {
     try {
         log("╔══════════════════════════", 'cyan');
@@ -174,7 +172,7 @@ async function downloadAndSetupCodebase() {
 // ----------------------------------------------------------------------
 // === END OF CLONING LOGIC ===
 // ----------------------------------------------------------------------
-
+*/
 
 // --- GLOBAL FLAGS ---
 global.isBotConnected = false; 
@@ -758,7 +756,7 @@ async function checkSessionIntegrityAndClean() {
 function checkEnvStatus() {
     try {
         log("╔══════════════════════════", 'magenta');
-        log(`║ 👀 .env file watcher activated at: ${envPath}`, 'magenta');
+        log(`║ 👀 .env file watcher `, 'green');
         log("╚══════════════════════════", 'magenta');
         
         // Use persistent: false for better behavior in some hosting environments
@@ -787,7 +785,7 @@ async function tylor() {
     
     // 1. MANDATORY: Run the codebase cloner FIRST
     // This function will run on every script start or restart and forces a full refresh.
-    await downloadAndSetupCodebase();
+   // await downloadAndSetupCodebase();
     
     // *************************************************************
     // *** CRITICAL: REQUIRED FILES MUST BE LOADED AFTER CLONING ***
