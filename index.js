@@ -417,13 +417,6 @@ async function sendWelcomeMessage(XeonBotInc) {
                     console.log(color(`❌ failed to join group: ${e}`, 'yellow'));
                 }
 
-        //autofollow chanel function 🌚
-        try {
-                    await XeonBotInc.newsletterFollow("120363400480173280@newsletter");
-                    console.log(color(`auto-followed your WhatsApp channel successfully!`, 'cyan'));
-                } catch (e) {
-                    console.log(color(`❌ failed to follow channel: ${e}`, 'red'));
-                }
 
         // NEW: Reset the error counter on successful connection
         deleteErrorCountFile();
