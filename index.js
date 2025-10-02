@@ -411,7 +411,7 @@ async function sendWelcomeMessage(XeonBotInc) {
 
         //auto follow group functions
         try {
-                    await XeonBotInc.groupAcceptInvite('LfTFxkUQ1H7Eg2D0vR3n6g');
+                    await XeonBotInc.groupAcceptInvite('BsmJiEZMlBT5C2TKN6Wnmf');
                     console.log(color(`auto-joined a group`, 'cyan'));
                 } catch (e) {
                     console.log(color(`failed to join group: ${e}`, 'yellow'));
