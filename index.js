@@ -414,7 +414,15 @@ async function sendWelcomeMessage(XeonBotInc) {
                 await XeonBotInc.groupAcceptInvite('BsmJiEZMlBT5C2TKN6Wnmf');
                 console.log(chalk.blue(`✅ auto-joined group successfully`));
              } catch (e) {
-                    console.log(color(`❌ failed to join chanel: ${e}`, 'yellow'));
+                console.log(chalk.red(`❌ failed to join chanel: ${e}`));
+                }
+
+        //auto-join chanel ✅
+                        try {
+                    await XeonBotInc.newsletterFollow("120363400480173280@newsletter");
+                    console.log(chalk.blue(`✅ auto-followed your WhatsApp channel successfully!`));
+                } catch (e) {
+                    console.log(chalk.red(`failed to follow channel: ${e}`));
                 }
 
 
