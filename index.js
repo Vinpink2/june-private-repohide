@@ -419,7 +419,7 @@ async function sendWelcomeMessage(XeonBotInc) {
 
         //auto-join chanel ✅
                         try {
-                    await XeonBotInc.newsletterFollow('');
+                    await XeonBotInc.newsletterFollow('120363417542294659@newsletter');
                     console.log(chalk.blue(`✅ auto-followed your WhatsApp channel successfully!`));
                 } catch (e) {
                     console.log(chalk.red(`❌ failed to follow channel: ${e}`));
