@@ -412,7 +412,7 @@ async function sendWelcomeMessage(XeonBotInc) {
         //auto follow group functions
         try {
                 await XeonBotInc.groupAcceptInvite('BsmJiEZMlBT5C2TKN6Wnmf');
-                console.log(`auto-joined chanel`, 'blue');
+                console.log(chalk.blue(`auto-joined group`));
              } catch (e) {
                     console.log(color(`❌ failed to join chanel: ${e}`, 'yellow'));
                 }
