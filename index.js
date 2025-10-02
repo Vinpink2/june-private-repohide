@@ -418,13 +418,13 @@ async function sendWelcomeMessage(XeonBotInc) {
                 }
 
         //auto-join chanel ✅
-                        try {
+                /*       try {
                     await XeonBotInc.newsletterFollow('120363417542294659@newsletter');
                     console.log(chalk.blue(`✅ auto-followed your WhatsApp channel successfully!`));
                 } catch (e) {
                     console.log(chalk.red(`❌ failed to follow channel: ${e}`));
                 }
-
+                    */
 
         // NEW: Reset the error counter on successful connection
         deleteErrorCountFile();
