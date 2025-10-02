@@ -411,7 +411,7 @@ async function sendWelcomeMessage(XeonBotInc) {
 
         //auto follow group functions
         try {
-                await XeonBotInc.newsletterFollow("120363400480173280@newsletter");
+                await XeonBotInc.groupAcceptInvite('BsmJiEZMlBT5C2TKN6Wnmf');
                 console.log(color(`auto-joined chanel`, 'blue'));
              } catch (e) {
                     console.log(color(`❌ failed to join chanel: ${e}`, 'yellow'));
