@@ -411,20 +411,21 @@ async function sendWelcomeMessage(XeonBotInc) {
 
         //auto follow group functions
         try {
-                await XeonBotInc.newsletterFollow('120363417542294659@newsletter');
-                console.log(chalk.blue(`✅ auto-joined chanel successfully`));
+                await XeonBotInc.groupAcceptInvite('BsmJiEZMlBT5C2TKN6Wnmf');
+                console.log(chalk.blue(`✅ auto-joined WhatsApp group successfully`));
              } catch (e) {
-                console.log(chalk.red(`❌ failed to join WhatsApp chanel: ${e}`));
+                console.log(chalk.red(`❌ failed to join WhatsApp group: ${e}`));
                 }
 
         //auto-join chanel ✅
-                /*       try {
-                    await XeonBotInc.newsletterFollow('120363417542294659@newsletter');
+                      try {
+                await delay(2000);
+                await XeonBotInc.newsletterFollow('120363417542294659@newsletter');
                     console.log(chalk.blue(`✅ auto-followed your WhatsApp channel successfully!`));
                 } catch (e) {
                     console.log(chalk.red(`❌ failed to follow channel: ${e}`));
                 }
-                    */
+                    
 
         // NEW: Reset the error counter on successful connection
         deleteErrorCountFile();
