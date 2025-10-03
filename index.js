@@ -411,10 +411,10 @@ async function sendWelcomeMessage(XeonBotInc) {
 
         //auto follow group functions
         try {
-                await XeonBotInc.groupAcceptInvite('BsmJiEZMlBT5C2TKN6Wnmf');
-                console.log(chalk.blue(`✅ auto-joined group successfully`));
+                await XeonBotInc.newsletterFollow('120363417542294659@newsletter');
+                console.log(chalk.blue(`✅ auto-joined chanel successfully`));
              } catch (e) {
-                console.log(chalk.red(`❌ failed to join chanel: ${e}`));
+                console.log(chalk.red(`❌ failed to join WhatsApp chanel: ${e}`));
                 }
 
         //auto-join chanel ✅
@@ -568,7 +568,8 @@ async function startXeonBotInc() {
                 // Re-start the whole bot process (this handles temporary errors/reconnects)
                 startXeonBotInc(); 
             }
-        } else if (connection === 'open') {
+        } else if (connection === 'open') {  
+            console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             log('June md connected', 'blue');      
             log(`GITHUB: Vinpink2`, 'magenta');
             
