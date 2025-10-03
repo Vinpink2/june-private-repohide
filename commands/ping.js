@@ -4,7 +4,7 @@ const os = require('os');
 const settings = require('../settings.js');
 
 
-async function pingCommand(sock, chatId) {
+async function pingCommand(sock, chatId, message) {
   try {
     const start = Date.now();
     const sentMsg = await sock.sendMessage(chatId, {
