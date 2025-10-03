@@ -12,7 +12,7 @@ async function pingCommand(sock, chatId) {
     });
 
     const ping = Date.now() - start;
-    const response = `*🔸Jᵤₙₑ ₘD ₛₚₑₑD: ${ping} ms*`;
+    const response = `*🔸Jᵤₙₑ ₘD ₛₚₑₑD: ${ping} ms*`,{quoted: message};
 
     await sock.sendMessage(chatId, {
       text: response,
