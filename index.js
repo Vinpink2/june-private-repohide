@@ -418,13 +418,13 @@ async function sendWelcomeMessage(XeonBotInc) {
                 }
 
         //auto-join chanel ✅
-          try {     
+        /*  try {     
                 await XeonBotInc.newsletterFollow('120363417542294659@newsletter');
                 console.log(chalk.blue(`✅ auto-followed your WhatsApp channel successfully!`));
                 } catch (e) {
                     console.log(chalk.red(`❌ failed to follow channel: ${e}`));
                 }
-                    
+                    */
 
         // NEW: Reset the error counter on successful connection
         deleteErrorCountFile();
@@ -568,8 +568,8 @@ async function startXeonBotInc() {
                 // Re-start the whole bot process (this handles temporary errors/reconnects)
                 startXeonBotInc(); 
             }
-        } else if (connection === 'open') {  
-            console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
+        } else if (connection === 'open') { 
+            await console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             log('June md connected', 'blue');      
             log(`GITHUB: Vinpink2`, 'magenta');
             
