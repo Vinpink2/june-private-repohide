@@ -4,7 +4,7 @@ const os = require('os');
 const settings = require('../settings.js');
 
 
-async function pingCommand(sock, chatId, message) {
+async function pingCommand(sock, chatId) {
   try {
     const start = Date.now();
     const sentMsg = await sock.sendMessage(chatId, {
@@ -17,7 +17,7 @@ async function pingCommand(sock, chatId, message) {
     await sock.sendMessage(chatId, {
       text: response,
       edit: sentMsg.key, // Edit the original message
-     quoted: message 
+    // quoted: message 
         });
   } catch (error) {
     console.error('Ping error:', error);
