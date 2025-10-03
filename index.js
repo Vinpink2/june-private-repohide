@@ -569,7 +569,6 @@ async function startXeonBotInc() {
                 startXeonBotInc(); 
             }
         } else if (connection === 'open') { 
-            await console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             log('June md connected', 'blue');      
             log(`GITHUB: Vinpink2`, 'magenta');
             
