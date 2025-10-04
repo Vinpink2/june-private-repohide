@@ -1,5 +1,5 @@
 /**
- * Knight Bot - A WhatsApp Bot
+ * june md Bot - A WhatsApp Bot
  * Autoread Command - Automatically read all messages
  */
 
@@ -31,10 +31,10 @@ async function autoreadCommand(sock, chatId, message) {
                 text: '❌ This command is only available for the owner!',
                 contextInfo: {
                     forwardingScore: 1,
-                    isForwarded: true,
+                    isForwarded: false,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363161513685998@newsletter',
-                        newsletterName: 'KnightBot MD',
+                        newsletterJid: '',
+                        newsletterName: 'june MD',
                         serverMessageId: -1
                     }
                 }
@@ -62,10 +62,10 @@ async function autoreadCommand(sock, chatId, message) {
                     text: '❌ Invalid option! Use: .autoread on/off',
                     contextInfo: {
                         forwardingScore: 1,
-                        isForwarded: true,
+                        isForwarded: false,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363161513685998@newsletter',
-                            newsletterName: 'KnightBot MD',
+                            newsletterJid: 'newsletter',
+                            newsletterName: 'june MD',
                             serverMessageId: -1
                         }
                     }
@@ -85,10 +85,10 @@ async function autoreadCommand(sock, chatId, message) {
             text: `✅ Auto-read has been ${config.enabled ? 'enabled' : 'disabled'}!`,
             contextInfo: {
                 forwardingScore: 1,
-                isForwarded: true,
+                isForwarded: false,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363161513685998@newsletter',
-                    newsletterName: 'KnightBot MD',
+                    newsletterJid: '@newsletter',
+                    newsletterName: 'june MD',
                     serverMessageId: -1
                 }
             }
@@ -102,8 +102,8 @@ async function autoreadCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363161513685998@newsletter',
-                    newsletterName: 'KnightBot MD',
+                    newsletterJid: '@newsletter',
+                    newsletterName: 'june MD',
                     serverMessageId: -1
                 }
             }
