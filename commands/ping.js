@@ -12,11 +12,12 @@ async function pingCommand(sock, chatId) {
     });
 
     const ping = Date.now() - start;
-    const response = `*🔸Jᵤₙₑ ₘD ₛₚₑₑD: ${ping} ms*`;
+    const response = `*🔸 𝑱𝒖𝒏𝒆-𝒎𝒅 𝑺𝒑𝒆𝒆𝒅: ${ping} 𝒎𝑺*`;
 
     await sock.sendMessage(chatId, {
       text: response,
-      edit: sentMsg.key // Edit the original message
+      edit: sentMsg.key,
+      quoted: message // Edit the original message
     });
   } catch (error) {
     console.error('Ping error:', error);
