@@ -50,7 +50,7 @@ function downloadFile(url, dest, visited = new Set()) {
             const client = useHttps ? require('https') : require('http');
             const req = client.get(url, {
                 headers: {
-                    'User-Agent': 'KnightBot-Updater/1.0',
+                    'User-Agent': 'June-md-Updater/1.0',
                     'Accept': '*/*'
                 }
             }, res => {
@@ -242,7 +242,7 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
 
     try {
         if (!isSimpleRestart) {
-             await sock.sendMessage(chatId, { text: '_Updating bot database. please wait…_' }, { quoted: message });
+             await sock.sendMessage(chatId, { text: '_Updating 💉 bot database. please wait…_' }, { quoted: message });
              if (await hasGitRepo()) {
                  const { oldRev, newRev, alreadyUpToDate, commits, files } = await updateViaGit();
                  const summary = alreadyUpToDate ? `✅ Already up to date: ${newRev}` : `✅ Updated to ${newRev}`;
@@ -255,9 +255,9 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
         
         try {
             const v = require('../settings').version || '';
-            await sock.sendMessage(chatId, { text: `_Restarting…_` }, { quoted: message });
+            await sock.sendMessage(chatId, { text: `_Restarting bot ...🏂_` }, { quoted: message });
         } catch {
-            await sock.sendMessage(chatId, { text: '_Restared Successfully Enjoy 😘_' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: 'Restared Successfully Enjoy_' }, { quoted: message });
         }
         
         // This is where the actual restart logic is executed.
@@ -265,7 +265,7 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
     } catch 
 (err) {
         console.error('Update failed:', err);
-        await sock.sendMessage(chatId, { text: `❌ Restart/Update failed:\n${String(err.message || err)}` }, { quoted: message });
+        await sock.sendMessage(chatId, { text: `❌ Update failed:\n${String(err.message || err)}` }, { quoted: message });
     }
 }
 
