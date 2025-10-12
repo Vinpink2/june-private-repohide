@@ -5,7 +5,11 @@ const os = require('os');
 
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
-
+const ram = () => {
+const ramp = [ "■□□□□□ 10%", "■■□□□□ 20%", "■■■□□□ 40%", "■■■■□□ 60%", "■■■■■□ 80%", "■■■■■■ 95%" ];
+const ramm = ramp[Math.floor(Math.random() * ramp.length)];      
+return (ramm)  
+}
 
 
 function formatTime(seconds) {
@@ -61,13 +65,13 @@ const hostName = detectHost();
     
     const helpMessage = `
 ┏❐  *❴ 𝙹𝚄𝙽𝙴-𝙼𝙳 𝙼𝙸𝙽𝙸 ❵* ❐
-┃➥ *Owner:* ${settings.botOwner}
 ┃➥ *prefix:* [.]
 ┃➥ *Mode:* ${currentMode}
 ┃➥ *Host:* ${hostName}
 ┃➥ *Speed:* ${ping} ms
 ┃➥ *Uptime:* ${uptimeFormatted}
 ┃➥ *version:* v${settings.version}
+┃➥ *Ram:* ${ram}
 ┗❐
   ${readmore}
 ┏❐ \`AI MENU\` ❐
