@@ -25,11 +25,23 @@ async function songCommand(sock, chatId, message) {
             video = search.videos[0];
         }
 
+// initial reaction 
+         await sock.sendMessage(chatId, {
+            react: { text: '🎥', key: message.key }
+        });
+
+        
         // Inform user
         await sock.sendMessage(chatId, {
             image: { url: video.thumbnail },
             caption: `🎵 Downloading: *${video.title}*\n🏂 Durration time: ${video.timestamp}`
         }, { quoted: message });
+
+        // raction ✅
+         await sock.sendMessage(chatId, {
+            react: { text: '✔️', key: message.key }
+        });
+
 
         // Get Izumi API link
         const apiUrl = `https://izumiiiiiiii.dpdns.org/downloader/youtube?url=${encodeURIComponent(video.url)}&format=mp3`;
@@ -55,6 +67,12 @@ async function songCommand(sock, chatId, message) {
             fileName: `${audioData.title || video.title || 'song'}.mp3`,
             ptt: false
         }, { quoted: message });
+
+        // successful react
+         await sock.sendMessage(chatId, {
+            react: { text: '✔️', key: message.key }
+        });
+
 
     } catch (err) {
         console.error('Song command error:', err);
