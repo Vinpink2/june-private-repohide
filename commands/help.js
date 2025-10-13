@@ -68,15 +68,7 @@ const hostName = detectHost();
 ┃➥ *Uptime:* ${uptimeFormatted}
 ┃➥ *version:* v${settings.version}
 ┗❐
-  ${readmore}
-┏❐ \`AI MENU\` ❐
-┃ .Ai
-┃ .gpt
-┃ .gemini
-┃ .imagine
-┃ .flux
-┗❐   
-
+  ${readmore} 
 ┏❐ \`OWNER MENU\` ❐
 ┃ .ban
 ┃ .restart
@@ -117,6 +109,14 @@ const hostName = detectHost();
 ┃ .close
 ┃ .mention
 ┗❐
+
+┏❐ \`AI MENU\` ❐
+┃ .Ai
+┃ .gpt
+┃ .gemini
+┃ .imagine
+┃ .flux
+┗❐  
   ${readmore}
 ┏❐ \`SETTING MENU\` ❐
 ┃ .mode
@@ -139,6 +139,7 @@ const hostName = detectHost();
 ┃ .tagall
 ┃ .yts
 ┃ .play
+┃ .spotify
 ┃ .trt
 ┃ .alive
 ┃ .ping 
@@ -171,6 +172,14 @@ const hostName = detectHost();
 ┃ .truth
 ┃ .dare
 ┃ .8ball
+┗❐
+
+┏❐ \`GITHUB CMD\` ❐
+┃ .git
+┃ .github
+┃ .sc
+┃ .script
+┃ .repo
 ┗❐
   ${readmore}
 ┏❐ \`MAKER MENU\`❐
@@ -221,7 +230,7 @@ const hostName = detectHost();
 ┃ .glitch
 ┃ .fire 
 ┗❐
- ${readmore}
+ 
 ┏❐ \`IMG EDDIT\` ❐
 ┃ .heart
 ┃ .horny
@@ -238,14 +247,6 @@ const hostName = detectHost();
 ┃ .jail 
 ┃ .passed 
 ┃ .triggered
-┗❐
-
-┏❐ \`GITHUB CMD\` ❐
-┃ .git
-┃ .github
-┃ .sc
-┃ .script
-┃ .repo
 ┗❐
 `;
 
