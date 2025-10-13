@@ -48,7 +48,7 @@ async function getppCommand(sock, chatId, message) {
         } catch (error) {
             console.error('⚠️Error in getpp command:', error);
             await sock.sendMessage(chatId, {
-                text: '🉐Failed to retrieve profile picture. The user might not have one set.',{ quoted: message
+                text: '🉐Failed to retrieve profile picture. The user might not have one set.'
             });
         }
     } catch (error) {
