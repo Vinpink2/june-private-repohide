@@ -54,7 +54,7 @@ async function tiktokCommand(sock, chatId, message) {
         }
 
         await sock.sendMessage(chatId, {
-            react: { text: '🔄', key: message.key }
+            react: { text: '🕹️', key: message.key }
         });
 
         try {
