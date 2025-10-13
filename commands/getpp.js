@@ -6,7 +6,7 @@ async function getppCommand(sock, chatId, message) {
         const isOwner = message.key.fromMe; // Fixed variable name from 'msg' to 'message'
         if (!isOwner) {
             await sock.sendMessage(chatId, { 
-                text: '😡 Command only for the owner.', {  quoted: message
+                text: '😡 Command only for the owner.'
             });
             return;
         }
@@ -24,7 +24,7 @@ async function getppCommand(sock, chatId, message) {
         
         if (!userToAnalyze) {
             await sock.sendMessage(chatId, { 
-                text: 'Please mention someone or reply to their message to get their profile picture🫴',{ quoted: message
+                text: 'Please mention someone or reply to their message to get their profile picture🫴'
                 });
             return;
         }
