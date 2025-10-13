@@ -249,6 +249,12 @@ const hostName = detectHost();
 ┗❐
 `;
 
+    // reaction dureing reaction
+     await sock.sendMessage(chatId, {
+            react: { text: '📔', key: message.key }
+        });
+
+    
     try {
         const imagePath = path.join(__dirname, '../assets/menu.jpg');
         if (fs.existsSync(imagePath)) {
@@ -270,6 +276,15 @@ const hostName = detectHost();
                 },
                 { quoted: message }
             );
+            
+    //successful menu react ✅
+            
+         await sock.sendMessage(chatId, {
+            react: { text: '✔️', key: message.key }
+        });
+            
+
+            
         } else {
             await sock.sendMessage(chatId, {
                 text: helpMessage,
