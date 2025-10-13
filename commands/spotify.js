@@ -1,3 +1,9 @@
+/**
+*supreme
+*/
+
+
+
 const axios = require('axios');
 
 async function spotifyCommand(sock, chatId, message) {
@@ -30,7 +36,7 @@ async function spotifyCommand(sock, chatId, message) {
             return;
         }
 
-        const caption = `🎵 ${r.title || r.name || 'Unknown Title'}\n👤 ${r.artist || ''}\n⏱ ${r.duration || ''}\n🔗 ${r.url || ''}`.trim();
+        const caption = `🔊 ${r.title || r.name || 'Unknown Title'}\n🎙️ ${r.artist || ''}\n⌛ ${r.duration || ''}\n🖇️ ${r.url || ''}`.trim();
 
          // Send cover and info as a follow-up (optional)
          if (r.thumbnails) {
