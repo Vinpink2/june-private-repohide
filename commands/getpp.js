@@ -45,7 +45,7 @@ async function getppCommand(sock, chatId, message) {
             // Send the profile picture to the chat
             await sock.sendMessage(chatId, {
                 image: { url: profilePic },
-                caption: `\n _🔸 hey 👋 Sucess in getting profile of:\n @${userToAnalyze.split('@')[0]} ._`,
+                caption: `\n _🔸 hey 👋 Sucess in getting profile of:-_\n @${userToAnalyze.split('@')[0]} .`,
                 mentions: [userToAnalyze]
             });
 
