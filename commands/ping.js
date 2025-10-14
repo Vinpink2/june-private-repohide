@@ -15,12 +15,7 @@ async function pingCommand( sock, chatId ) {
     await sock.sendMessage(chatId, {
       text: response,
       edit: sentMsg.key// Edit the original message
-    });
-    //react 2 ✔️
-    await sock.sendMessage(chatId, {
-            react: { text: '🎉', key: message.key }
-        });
-
+    });   
     
   } catch (error) {
     console.error('Ping error:', error);
