@@ -27,6 +27,11 @@ async function githubCommand(sock, chatId, message) {
     const imgBuffer = fs.readFileSync(imgPath);
 
     await sock.sendMessage(chatId, { image: imgBuffer, caption: txt }, { quoted: message });
+//arect sucess💉
+    await sock.sendMessage(chatId, {
+            react: { text: '✔️', key: message.key }
+        });
+    
   } catch (error) {
     await sock.sendMessage(chatId, { text: '❌ Error fetching repository information.' }, { quoted: message });
   }
