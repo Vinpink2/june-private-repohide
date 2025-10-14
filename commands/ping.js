@@ -9,6 +9,10 @@ async function pingCommand( sock, chatId ) {
       text: '*🔹pong!...*'
     });
 
+    await sock.sendMessage(chatId, {
+            react: { text: '🤔', key: message.key }
+        });
+
     const ping = Date.now() - start;
     const response = `*🔸 𝑱𝒖𝒏𝒆-𝒎𝒅 𝑺𝒑𝒆𝒆𝒅:${ping} 𝒎𝑺*`;
 
@@ -16,6 +20,12 @@ async function pingCommand( sock, chatId ) {
       text: response,
       edit: sentMsg.key// Edit the original message
     });
+    //react 2 ✔️
+    await sock.sendMessage(chatId, {
+            react: { text: '⚡', key: message.key }
+        });
+
+    
   } catch (error) {
     console.error('Ping error:', error);
     await sock.sendMessage(chatId, { text: 'Failed to measure speed.' });
