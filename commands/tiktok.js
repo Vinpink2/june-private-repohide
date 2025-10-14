@@ -154,6 +154,10 @@ async function tiktokCommand(sock, chatId, message) {
                         caption: caption
                     }, { quoted: message });
 
+                      await sock.sendMessage(chatId, {
+            react: { text: '☑️', key: message.key }
+        });
+
                     // If we have audio URL, download and send it as well
                     if (audioUrl) {
                         try {
@@ -192,7 +196,7 @@ async function tiktokCommand(sock, chatId, message) {
 
              await sock.sendMessage(chatId, {
             react: { text: '☑️', key: message.key }
-        });  
+        }); 
                         
                         return;
                     } catch (urlError) {
