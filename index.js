@@ -418,7 +418,7 @@ function detectHost() {
         const pNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
         let data = JSON.parse(fs.readFileSync('./data/messageCount.json'));
         const currentMode = data.isPublic ? 'public' : 'private';    
-        const host = detectHost();
+        const hostName = detectHost();
    
 
         // Send the message
@@ -427,7 +427,7 @@ function detectHost() {
 ┏━━━━━✧ CONNECTED ✧
 ┃✧ Prefix: [.]
 ┃✧ mode: [${currentMode}]
-┃✧ Platform: [${host}]
+┃✧ Platform: [${hostName}]
 ┃✧ Bot: 𝐉ᴜ𝐧𝐞 𝐌ᴅ
 ┃✧ Status: Active
 ┃✧ Time: ${new Date().toLocaleString()}
