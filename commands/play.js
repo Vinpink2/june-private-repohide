@@ -49,6 +49,11 @@ async function playCommand(sock, chatId, message) {
             fileName: `${title}.mp3`
         }, { quoted: message });
 
+         //react 2 ✔️
+    await sock.sendMessage(chatId, {
+            react: { text: '✔️', key: message.key }
+        });
+
     } catch (error) {
         console.error('Error in song2 command:', error);
         await sock.sendMessage(chatId, { 
