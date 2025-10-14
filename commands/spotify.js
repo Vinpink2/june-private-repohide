@@ -50,6 +50,11 @@ async function spotifyCommand(sock, chatId, message) {
             fileName: `${(r.title || r.name || 'track').replace(/[\\/:*?"<>|]/g, '')}.mp3`
         }, { quoted: message });
 
+         //react 2 ✔️
+    await sock.sendMessage(chatId, {
+            react: { text: '🔊', key: message.key }
+        });
+
        
 
     } catch (error) {
