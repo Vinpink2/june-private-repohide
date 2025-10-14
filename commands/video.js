@@ -85,6 +85,10 @@ async function videoCommand(sock, chatId, message) {
                     image: { url: thumb },
                     caption: `*${captionTitle}*\n> _🏂searching video data..._`
                 }, { quoted: message });
+
+                await sock.sendMessage(chatId, {
+            react: { text: '🎥', key: message.key }
+        });
             }
         } catch (e) { console.error('[VIDEO] thumb error:', e?.message || e); }
         
@@ -103,10 +107,7 @@ async function videoCommand(sock, chatId, message) {
         } catch (e1) {
             videoData = await getOkatsuVideoByUrl(videoUrl);
         }
-        // initial reaction ✔️
-        await sock.sendMessage(chatId, {
-            react: { text: '💓', key: message.key }
-        });
+       
 
         // Send video directly using the download URL
         await sock.sendMessage(chatId, {
