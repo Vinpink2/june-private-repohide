@@ -37,10 +37,7 @@ async function songCommand(sock, chatId, message) {
             caption: `🎵 Downloading: *${video.title}*\n🏂 Durration time: ${video.timestamp}`
         }, { quoted: message });
 
-        // raction ✅
-         await sock.sendMessage(chatId, {
-            react: { text: '✔️', key: message.key }
-        });
+        
 
 
         // Get Izumi API link
