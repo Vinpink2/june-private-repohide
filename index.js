@@ -427,9 +427,9 @@ function detectHost() {
             text: `
 ┏━━━━━✧ CONNECTED ✧
 ┃✧ Prefix: [.]
-┃✧ mode: [${currentMode}]
-┃✧ Platform: [${hostName}]
-┃✧ Bot: 𝐉ᴜ𝐧𝐞 𝐌ᴅ
+┃✧ mode: ${currentMode}
+┃✧ Platform: ${hostName}
+┃✧ Bot: JUNE MD
 ┃✧ Status: Active
 ┃✧ Time: ${new Date().toLocaleString()}
 ┗━━━━━━━━━━━━━━━━━━━`
