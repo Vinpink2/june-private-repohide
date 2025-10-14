@@ -48,7 +48,7 @@ function detectHost() {
 async function helpCommand(sock, chatId, message) {
     
 
-let data = JSON.parse(fs.readFileSync('./data/messageCount.json'));
+    let data = JSON.parse(fs.readFileSync('./data/messageCount.json'));
     const start = Date.now();
     await sock.sendMessage(chatId, { text: '_Wait Loading Menu..._' }, { quoted: message });
     const end = Date.now();
