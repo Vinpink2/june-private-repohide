@@ -243,6 +243,11 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
     try {
         if (!isSimpleRestart) {
              await sock.sendMessage(chatId, { text: '_Updating 💉 bot database. please wait…_' }, { quoted: message });
+            // rection ✅
+            await sock.sendMessage(chatId, {
+            react: { text: '🆙', key: message.key }
+        });
+            
              if (await hasGitRepo()) {
                  const { oldRev, newRev, alreadyUpToDate, commits, files } = await updateViaGit();
                  const summary = alreadyUpToDate ? `✅ Already up to date: ${newRev}` : `✅ Updated to ${newRev}`;
@@ -256,6 +261,11 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
         try {
             const v = require('../settings').version || '';
             await sock.sendMessage(chatId, { text: `_Restarting bot ...🏂_` }, { quoted: message });
+// react again
+            await sock.sendMessage(chatId, {
+            react: { text: '💓', key: message.key }
+        });
+            
         } catch {
             await sock.sendMessage(chatId, { text: 'Restared Successfully Enjoy_' }, { quoted: message });
         }
