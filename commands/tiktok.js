@@ -188,6 +188,12 @@ async function tiktokCommand(sock, chatId, message) {
                             mimetype: "video/mp4",
                             caption: caption
                         }, { quoted: message });
+                        // success in download reaction
+
+             await sock.sendMessage(chatId, {
+            react: { text: '☑️', key: message.key }
+        });  
+                        
                         return;
                     } catch (urlError) {
                         console.error(`URL method also failed: ${urlError.message}`);
