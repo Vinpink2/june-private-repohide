@@ -26,6 +26,10 @@ async function getppCommand(sock, chatId, message) {
             await sock.sendMessage(chatId, { 
                 text: 'Please mention someone or reply to their message to get their profile picture🫴'
                 });
+
+            await sock.sendMessage(chatId, {
+            react: { text: '🗑️', key: message.key }
+        });
             return;
         }
 
@@ -44,6 +48,10 @@ async function getppCommand(sock, chatId, message) {
                 caption: `\n _🔸 hey 👋 Sucess in getting profile of:\n @${userToAnalyze.split('@')[0]} ._`,
                 mentions: [userToAnalyze]
             });
+
+            await sock.sendMessage(chatId, {
+            react: { text: '☑️', key: message.key }
+        });
 
         } catch (error) {
             console.error('⚠️Error in getpp command:', error);
