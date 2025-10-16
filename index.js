@@ -505,7 +505,7 @@ async function startXeonBotInc() {
     const msgRetryCounterCache = new NodeCache();
 
     const XeonBotInc = makeWASocket({
-        version: [2, 3000, 1025190524],
+        version,
         logger: pino({ level: 'silent' }),
         printQRInTerminal: false, 
         browser: ["Ubuntu", "Chrome", "20.0.04"],
@@ -679,9 +679,9 @@ async function checkSessionIntegrityAndClean() {
  */
 function checkEnvStatus() {
     try {
-        log("╔══════════════════════════", 'magenta');
-        log(`║ 👀 .env file watcher `, 'green');
-        log("╚══════════════════════════", 'magenta');
+        log("╔══════════════════════════", 'green');
+        log(`║ .env file watcher `, 'green');
+        log("╚══════════════════════════", 'green');
         
         // Use persistent: false for better behavior in some hosting environments
         // Always set the watcher regardless of the environment
