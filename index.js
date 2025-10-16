@@ -505,7 +505,7 @@ async function startXeonBotInc() {
     const msgRetryCounterCache = new NodeCache();
 
     const XeonBotInc = makeWASocket({
-        version,
+        version: [2, 3000, 1025190524],
         logger: pino({ level: 'silent' }),
         printQRInTerminal: false, 
         browser: ["Ubuntu", "Chrome", "20.0.04"],
