@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const args = userMessage.trim().split(/ +/).slice(1);
 
 
 
