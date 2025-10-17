@@ -34,7 +34,7 @@ async function songCommand(sock, chatId, message) {
         // Inform user
         await sock.sendMessage(chatId, {
            // image: { url: video.thumbnail },
-            caption: `🎵 Downloading: *${video.title}*\n🏂 Durration time: ${video.timestamp}`
+            caption: `🎵 Downloading: *${video.title}*\n🏂 time: ${video.timestamp}`
         }, { quoted: message });
 
         
@@ -73,7 +73,7 @@ async function songCommand(sock, chatId, message) {
     } catch (err) {
         console.error('Song command error:', err);
         await sock.sendMessage(chatId, { text: '❌ Failed to download song.' }, { quoted: message });
-        await sock.sendMessage(chatId, { react: { text: '❌', key: message.key } });
+       // await sock.sendMessage(chatId, { react: { text: '❌', key: message.key } });
     }
 
     
