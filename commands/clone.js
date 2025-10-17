@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const args = userMessage.split(' ').slice(1).join(' ');
 
 
 
