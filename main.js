@@ -18,7 +18,6 @@ const { autoreadCommand, isAutoreadEnabled, handleAutoread } = require('./comman
 const getppCommand =require('./commands/getpp');
 
 // Command imports
-const cloneCommand = require('./commands/clone.js');
 const tagAllCommand = require('./commands/tagall');
 const helpCommand = require('./commands/help');
 const banCommand = require('./commands/ban');
