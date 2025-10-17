@@ -7,9 +7,9 @@ const fetch = require('node-fetch');
 async function cloneCommand(sock, chatId, message) {
                 try {
                     if (!args[0]) return 
-                    await sock.sendMessage(chatId, { text:  }, { quoted: message });
+                    await sock.sendMessage(chatId, { text: "i"  }, { quoted: message });
                     if (!args[0].includes('github.com')) return
-                    await sock.sendMessage(chatId, { text:  }, { quoted: message });
+                    await sock.sendMessage(chatId, { text: "h" }, { quoted: message });
                     const regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i;
                     let [, user, repo] = args[0].match(regex) || [];
                     repo = repo.replace(/.git$/, '');
@@ -26,7 +26,7 @@ async function cloneCommand(sock, chatId, message) {
                     console.error("gitclone error:", err);
                     await sock.sendMessage(chatId, { text: "❌ fail to fetch repo zip" }, { quoted: message });
                 }
-                
+}
                                
             
             
