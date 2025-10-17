@@ -4,8 +4,12 @@ const fetch = require('node-fetch');
 
 
 
-async function cloneCommand(sock, chatId, message) {
+async function cloneCommand(sock, chatId, message, args) {
                 try {
+                     case userMessage === '.clone':
+                const args = userMessage.split(' ').slice(1).join(' ');
+                //await cloneCommand(sock, chatId, message, args);
+                break;
                     if (!args[0]) return 
                     await sock.sendMessage(chatId, { text: "provide agithiblink"  }, { quoted: message });
                     if (!args[0].includes('github.com')) return
