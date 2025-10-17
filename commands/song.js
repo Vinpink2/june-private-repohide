@@ -78,9 +78,10 @@ async function songCommand(sock, chatId, message) {
 
     
     //err reactions ❌
-    
-         await sock.sendMessage(chatId, {
+        await sock.sendMessage(chatId, {
             react: { text: '❌', key: message.key }
+        });
+    
 }
 
 module.exports = songCommand;
