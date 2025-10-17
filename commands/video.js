@@ -54,6 +54,9 @@ async function videoCommand(sock, chatId, message) {
         
         if (!searchQuery) {
             await sock.sendMessage(chatId, { text: 'What video do you want to download?' }, { quoted: message });
+            await sock.sendMessage(chatId, {
+            react: { text: '🎥', key: message.key }
+        });
             return;
         }
 
@@ -86,9 +89,7 @@ async function videoCommand(sock, chatId, message) {
                     caption: `_🏂searching video data..._`
                 }, { quoted: message });
 
-                await sock.sendMessage(chatId, {
-            react: { text: '🎥', key: message.key }
-        });
+           
             }
         } catch (e) { console.error('[VIDEO] thumb error:', e?.message || e); }
         
