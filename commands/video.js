@@ -82,8 +82,8 @@ async function videoCommand(sock, chatId, message) {
             const captionTitle = videoTitle || searchQuery;
             if (thumb) {
                 await sock.sendMessage(chatId, {
-                    image: { url: thumb },
-                    caption: `*${captionTitle}*\n> _🏂searching video data..._`
+                    image: { url: null },
+                    caption: `*${captionTitle}*\n _🏂searching video data..._`
                 }, { quoted: message });
 
                 await sock.sendMessage(chatId, {
