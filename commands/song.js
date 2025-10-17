@@ -66,21 +66,17 @@ async function songCommand(sock, chatId, message) {
         }, { quoted: message });
 
         // successful react
-         await sock.sendMessage(chatId, {
-            react: { text: '✔️', key: message.key }
+         await sock.sendMessage(chatId, { react: { text: '✔️', key: message.key }
         });
 
 
     } catch (err) {
         console.error('Song command error:', err);
         await sock.sendMessage(chatId, { text: '❌ Failed to download song.' }, { quoted: message });
+        await sock.sendMessage(chatId, { react: { text: '❌', key: message.key } });
     }
 
     
-    //err reactions ❌
-        await sock.sendMessage(chatId, {
-            react: { text: '❌', key: message.key }
-        });
     
 }
 
