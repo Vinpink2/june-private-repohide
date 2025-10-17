@@ -82,8 +82,8 @@ async function videoCommand(sock, chatId, message) {
             const captionTitle = videoTitle || searchQuery;
             if (thumb) {
                 await sock.sendMessage(chatId, {
-                    image: { url: null },
-                    caption: `*${captionTitle}*\n _🏂searching video data..._`
+                    //image: { url: null },
+                    caption: `_🏂searching video data..._`
                 }, { quoted: message });
 
                 await sock.sendMessage(chatId, {
@@ -114,7 +114,7 @@ async function videoCommand(sock, chatId, message) {
             video: { url: videoData.download },
             mimetype: 'video/mp4',
             fileName: `${videoData.title || videoTitle || 'video'}.mp4`,
-            caption: `*${videoData.title || videoTitle || 'Video'}*`
+           // caption: `*${videoData.title || videoTitle || 'Video'}*`
         }, { quoted: message });
 
         //react sucess
