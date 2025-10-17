@@ -61,9 +61,9 @@ async function playCommand(sock, chatId, message) {
         });
 
         //err react
-        
-         await sock.sendMessage(chatId, {
+            await sock.sendMessage(chatId, {
             react: { text: '❌', key: message.key }
+        });
         
     }
 }
