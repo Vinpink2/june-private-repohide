@@ -18,6 +18,7 @@ const { autoreadCommand, isAutoreadEnabled, handleAutoread } = require('./comman
 const getppCommand =require('./commands/getpp');
 
 // Command imports
+const cloneCommand = require('./commands/clone.js');
 const tagAllCommand = require('./commands/tagall');
 const helpCommand = require('./commands/help');
 const banCommand = require('./commands/ban');
@@ -379,6 +380,11 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.settings':
                 await settingsCommand(sock, chatId, message);
                 break;
+                //clone functions
+            case userMessage === '.clone':
+                await cloneCommand(sock, chatId, message);
+                break;
+                
             case userMessage.startsWith('.mode'):
                 // Check if sender is the owner
                 if (!message.key.fromMe && !senderIsSudo) {
