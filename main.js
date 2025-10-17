@@ -314,8 +314,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         let commandExecuted = false;
 
         switch (true) {
-            case userMassage === 'toimage':
-            case userMessage === '.simage': {
+            case userMessage === '.toimage': {
                 const quotedMessage = message.message?.extendedTextMessage?.contextInfo?.quotedMessage;
                 if (quotedMessage?.stickerMessage) {
                     await simageCommand(sock, quotedMessage, chatId);
@@ -380,9 +379,6 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.settings':
                 await settingsCommand(sock, chatId, message);
                 break;
-                
-         
-                
             case userMessage.startsWith('.mode'):
                 // Check if sender is the owner
                 if (!message.key.fromMe && !senderIsSudo) {
