@@ -1,5 +1,14 @@
 const fetch = require('node-fetch');
 
+const userMessage = (
+            message.message?.conversation?.trim() ||
+            message.message?.extendedTextMessage?.text?.trim() ||
+            message.message?.imageMessage?.caption?.trim() ||
+            message.message?.videoMessage?.caption?.trim() ||
+            ''
+        ).toLowerCase().replace(/\.\s+/g, '.').trim();
+const args = userMessage.split(' ').slice(1).join(' ');
+
 
 
 
@@ -7,9 +16,9 @@ const fetch = require('node-fetch');
 async function cloneCommand(sock, chatId, message, args) {
                 try {
                     if (!args[0]) return 
-                    await sock.sendMessage(chatId, { text: "i"  }, { quoted: message });
+                    await sock.sendMessage(chatId, { text: "provide agithiblink"  }, { quoted: message });
                     if (!args[0].includes('github.com')) return
-                    await sock.sendMessage(chatId, { text: "h" }, { quoted: message });
+                    await sock.sendMessage(chatId, { text: "provide a valid link" }, { quoted: message });
                     const regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i;
                     let [, user, repo] = args[0].match(regex) || [];
                     repo = repo.replace(/.git$/, '');
