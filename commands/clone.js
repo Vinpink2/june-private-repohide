@@ -31,7 +31,7 @@ async function cloneCommand(sock, chatId, message) {
                     const contentDisp = head.headers.get('content-disposition');
                     const filenameMatch = contentDisp?.match(/attachment; filename=(.*)/);
                     const filename = filenameMatch ? filenameMatch[1] : `${repo}.zip`;
-                    await sock.sendMessage(from, { document: { url: zipUrl }, fileName: filename, mimetype: 'application/zip' }, { quoted: message });
+                    await sock.sendMessage(chatId, { document: { url: zipUrl }, fileName: filename, mimetype: 'application/zip' }, { quoted: message });
                     
                     await sock.sendMessage(chatId, { text: `✅ Successfully fetched repository: *${user}/${repo}` }, { quoted: message });
                     
