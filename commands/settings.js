@@ -41,7 +41,7 @@ async function settingsCommand(sock, chatId, message) {
         const antitagCfg = groupId ? (userGroupData.antitag && userGroupData.antitag[groupId]) : null;
 
         const lines = [];
-        lines.push('*BOT SETTINGS*');
+        lines.push('_JUNE MD SETTINGS_');
         lines.push('');
         lines.push(`🔹 Mode: ${mode.isPublic ? 'Public' : 'Private'}`);
         lines.push(`🔹 Auto Status: ${autoStatus.enabled ? 'ON' : 'OFF'}`);
@@ -79,6 +79,10 @@ async function settingsCommand(sock, chatId, message) {
         }
 
         await sock.sendMessage(chatId, { text: lines.join('\n') }, { quoted: message });
+                //successful react 
+            await sock.sendMessage(chatId, {
+            react: { text: '☑️', key: message.key }
+        });
     } catch (error) {
         console.error('Error in settings command:', error);
         await sock.sendMessage(chatId, { text: 'Failed to read settings.' }, { quoted: message });
