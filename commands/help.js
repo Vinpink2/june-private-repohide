@@ -2,6 +2,7 @@ const settings = require('../settings');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const chatId = message.key.remoteJid;
 
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
