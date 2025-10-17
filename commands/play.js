@@ -57,7 +57,7 @@ async function playCommand(sock, chatId, message) {
         console.error('Error in song2 command:', error);
         await sock.sendMessage(chatId, { 
             text: "Download failed. Please try again later.", { quoted: message });
-        await sock.sendMessage(chatId, { react: { text: '❌', key: message.key } });
+      //  await sock.sendMessage(chatId, { react: { text: '❌', key: message.key } });
 
         
     }
