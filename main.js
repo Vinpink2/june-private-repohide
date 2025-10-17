@@ -383,7 +383,8 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
                 //clone functions
             case userMessage === '.clone':
-                await cloneCommand(sock, chatId, message);
+                const args = userMessage.split(' ').slice(1).join(' ');
+                await cloneCommand(sock, chatId, message, args);
                 break;
                 
             case userMessage.startsWith('.mode'):
