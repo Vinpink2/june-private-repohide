@@ -381,11 +381,8 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage === '.settings':
                 await settingsCommand(sock, chatId, message);
                 break;
-                //clone functions
-            case userMessage === '.clone':
-                const args = userMessage.split(' ').slice(1).join(' ');
-                await cloneCommand(sock, chatId, message, args);
-                break;
+                
+         
                 
             case userMessage.startsWith('.mode'):
                 // Check if sender is the owner
