@@ -1,4 +1,16 @@
 const fetch = require('node-fetch');
+
+
+
+
+
+        const userMessage = (
+            message.message?.conversation?.trim() ||
+            message.message?.extendedTextMessage?.text?.trim() ||
+            message.message?.imageMessage?.caption?.trim() ||
+            message.message?.videoMessage?.caption?.trim() ||
+            ''
+        ).toLowerCase().replace(/\.\s+/g, '.').trim();
 const args = userMessage.split(' ').slice(1).join(' ');
 
 
