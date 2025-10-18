@@ -4,7 +4,7 @@ async function playCommand(sock, chatId, message) {
         await sock.sendMessage(chatId, {
             react: {
                 text: "🎵",
-                key: msg.key
+                key: message.key
             }
         });
 
@@ -13,10 +13,10 @@ async function playCommand(sock, chatId, message) {
         const BASE_URL = 'https://noobs-api.top';
 
         // Extract query from message
-        const q = msg.message?.conversation || 
-                  msg.message?.extendedTextMessage?.text || 
-                  msg.message?.imageMessage?.caption || 
-                  msg.message?.videoMessage?.caption || '';
+        const q = message.message?.conversation || 
+                  message.message?.extendedTextMessage?.text || 
+                  message.message?.imageMessage?.caption || 
+                  message.message?.videoMessage?.caption || '';
         
         const args = q.split(' ').slice(1);
         const query = args.join(' ').trim();
