@@ -6,7 +6,7 @@ async function pingCommand( sock, chatId, message ) {
   try {
     const start = Date.now();
     const sentMsg = await sock.sendMessage(chatId, {
-      text: '*🔹pong!...*', quoted: message
+      text: '*🔹pong!...*'},{ quoted: message
     });
 
     const ping = Date.now() - start;
