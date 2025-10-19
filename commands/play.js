@@ -2,7 +2,10 @@ const yts = require('yt-search');
 const axios = require('axios');
 
 async function playCommand(sock, chatId, message) {
-    try {
+    try {        
+        const tempDir = path.join(__dirname, "temp");
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
+        
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
         const searchQuery = text.split(' ').slice(1).join(' ').trim();
         
@@ -11,6 +14,10 @@ async function playCommand(sock, chatId, message) {
                 text: "What song do you want to download?"
             });
         }
+        
+       // const timestamp = Date.now();
+        const fileName = `audio.mp3`;
+        const filePath = path.join(tempDir, fileName);
 
         // Search for the song
         const { videos } = await yts(searchQuery);
@@ -45,6 +52,7 @@ async function playCommand(sock, chatId, message) {
         // Send the audio
         await sock.sendMessage(chatId, {
             audio: { url: audioUrl },
+            document: { url: filePath },
             mimetype: "audio/mpeg",
             fileName: `${title}.mp3`
         }, { quoted: message });
