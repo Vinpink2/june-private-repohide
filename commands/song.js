@@ -59,7 +59,7 @@ async function songCommand(sock, chatId, message) {
        await sock.sendMessage(chatId, { react: { text: '✔️', key: message.key } 
         });
        await sock.sendMessage(chatId, {
-            text: `_Download successful_ ✅`},{ quoted: message
+            text: `_Download successful ✔️ by 𝐉ᴜɴᴇ 𝐌ᴅ Bot_`},{ quoted: message
         });
 
     } catch (error) {
