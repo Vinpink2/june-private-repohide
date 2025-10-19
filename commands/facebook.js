@@ -22,7 +22,7 @@ async function facebookCommand(sock, chatId, message) {
 
         // Send loading reaction
         await sock.sendMessage(chatId, {
-            react: { text: '🔄', key: message.key }
+            react: { text: '🔳', key: message.key }
         });
 
         // Resolve share/short URLs to their final destination first
@@ -119,6 +119,10 @@ async function facebookCommand(sock, chatId, message) {
             mimetype: "video/mp4",
             caption: "_Downloaded successfully ✅_"
         }, { quoted: message });
+        
+        await sock.sendMessage(chatId, {
+            react: { text: '✅', key: message.key }
+        });
 
         // Clean up temp file
         try {
