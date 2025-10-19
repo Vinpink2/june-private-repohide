@@ -30,7 +30,7 @@ async function playCommand(sock, chatId, message) {
 
         // Send loading message
         await sock.sendMessage(chatId, {
-            text: "_Please wait your download is in progress_"
+            text: "_Please wait your download is in progress_"}, { quoted: message 
         });
 
         // Get the first video result
@@ -52,7 +52,7 @@ async function playCommand(sock, chatId, message) {
 
         // Send the audio
         await sock.sendMessage(chatId, {
-            audio: { url: audioUrl },
+           // audio: { url: audioUrl },
             document: { url: filePath },
             mimetype: "audio/mpeg",
             fileName: `${title}.mp3`
