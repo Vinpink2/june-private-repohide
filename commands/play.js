@@ -133,7 +133,7 @@ async function playCommand(sock, chatId, message) {
         const safeTitle = video.title.replace(/[\\/:*?"<>|]/g, '');
         const fileName = `${safeTitle}.mp3`;
         const apiURL = `${BASE_URL}/dipto/ytDl3?link=${encodeURIComponent(video.videoId)}&format=mp3`;
-
+/*
         // Create single button for getting video
         const buttonMessage = {
             image: { url: video.thumbnail },
@@ -163,7 +163,7 @@ async function playCommand(sock, chatId, message) {
 
         // Send song description with thumbnail and single button
         await sock.sendMessage(chatId, buttonMessage, { quoted: message });
-
+*/
         // Get download link
         const response = await axios.get(apiURL, { timeout: 30000 });
         const data = response.data;
