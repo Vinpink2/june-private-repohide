@@ -64,9 +64,7 @@ async function songCommand(sock, chatId, message) {
         //successful react ✔️
        await sock.sendMessage(chatId, { react: { text: '🔊', key: message.key } 
         });
-       await sock.sendMessage(chatId, {
-            text: `_Downloaded successfully  by June md 🖤_`},{ quoted: message
-        });
+       
 
     } catch (error) {
         console.error('Error in song2 command:', error);
