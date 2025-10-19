@@ -1,3 +1,4 @@
+/*
 const axios = require('axios');
 const yts = require('yt-search');
 const fs = require('fs');
@@ -7,7 +8,7 @@ const AXIOS_DEFAULTS = {
 	timeout: 60000,
 	headers: {
 		'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-		'Accept': 'application/json, text/plain, */*'
+		'Accept': 'application/json, text/plain, /*'
 	}
 };
 
@@ -27,7 +28,7 @@ async function tryRequest(getter, attempts = 3) {
 }
 
 async function getIzumiDownloadByUrl(youtubeUrl) {
-	const apiUrl = `https://izumiiiiiiii.dpdns.org/downloader/youtube?url=${encodeURIComponent(youtubeUrl)}&format=mp3`;
+	const apiUrl = `${encodeURIComponent(youtubeUrl)}&format=mp3`;
 	const res = await tryRequest(() => axios.get(apiUrl, AXIOS_DEFAULTS));
 	if (res?.data?.result?.download) return res.data.result;
 	throw new Error('Izumi youtube?url returned no download');
@@ -120,4 +121,14 @@ async function songCommand(sock, chatId, message) {
 }
 
 module.exports = songCommand;
+*/
+
+//new song API 
+
+
+
+
+
+
+
 
