@@ -133,7 +133,7 @@ async function playCommand(sock, chatId, message) {
         const safeTitle = video.title.replace(/[\\/:*?"<>|]/g, '');
         const fileName = `${safeTitle}.mp3`;
         const apiURL = `${BASE_URL}/dipto/ytDl3?link=${encodeURIComponent(video.videoId)}&format=mp3`;
-/*
+
         // Create single button for getting video
         const buttonMessage = {
             image: { url: video.thumbnail },
@@ -147,23 +147,12 @@ async function playCommand(sock, chatId, message) {
 🔗 *YouTube ID:* ${video.videoId}
 
 ⬇️ *Downloading your audio...* ⬇️
-
-💡 *Tip:* Use *.video to get the video version*
-            `.trim(),
-            footer: 'CaseyRhodes Mini - Audio Player',
-            buttons: [
-                {
-                    buttonId: '.video ' + video.title,
-                    buttonText: { displayText: '🎬 Get Video' },
-                    type: 1
-                }
-            ],
-            headerType: 1
+`
         };
 
         // Send song description with thumbnail and single button
         await sock.sendMessage(chatId, buttonMessage, { quoted: message });
-*/
+
         // Get download link
         const response = await axios.get(apiURL, { timeout: 30000 });
         const data = response.data;
@@ -176,7 +165,7 @@ async function playCommand(sock, chatId, message) {
 
         // Send audio file
         await sock.sendMessage(chatId, {
-            audio: { url: data.downloadLink },
+            //audio: { url: data.downloadLink },
             mimetype: 'audio/mpeg',
             fileName: fileName,
             caption: `✅ *Download Complete!*\n🎵 ${video.title}`
