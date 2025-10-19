@@ -30,16 +30,16 @@ async function playCommand(sock, chatId, message) {
         const urlYt = video.url;
 
         // Fetch audio data from API
-        const response = await axios.get(`https://apis-keith.vercel.app/download/mp3?url=${urlYt}`);
+        const response = await axios.get(`https://api.goodnesstechhost.xyz/download/youtube/audio?url=${urlYt}`);
         const data = response.data;
 
-        if (!data || !data.status || !data.result || !data.result.downloadUrl) {
+        if (!data || !data.status || !data.result || !data.result.download_url) {
             return await sock.sendMessage(chatId, { 
                 text: "Failed to fetch audio from the API. Please try again later."
             });
         }
 
-        const audioUrl = data.result.downloadUrl;
+        const audioUrl = data.result.download_url;
         const title = data.result.title;
 
         // Send the audio
