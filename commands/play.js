@@ -5,8 +5,8 @@ const time = new Date().toLocaleTimeString();
 
 async function playCommand(sock, chatId, message) {
     try {        
-      //  const tempDir = path.join(__dirname, "temp");
-       // if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
+        const tempDir = path.join(__dirname, "temp");
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
         
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
         const searchQuery = text.split(' ').slice(1).join(' ').trim();
@@ -17,9 +17,9 @@ async function playCommand(sock, chatId, message) {
             });
         }
         
-      //  const timestamp = Date.now();
-      //  const fileName = `audio_${timestamp}.mp3`;
-        //const filePath = path.join(tempDir, fileName);
+        const timestamp = Date.now();
+        const fileName = `audio_${timestamp}.mp3`;
+        const filePath = path.join(tempDir, fileName);
 
         // Search for the song
         const { videos } = await yts(searchQuery);
@@ -53,8 +53,8 @@ async function playCommand(sock, chatId, message) {
 
         // Send the audio
         await sock.sendMessage(chatId, {
-            audio: { url: audioUrl },
-         //   document: { url: filePath },
+            //audio: { url: audioUrl },
+            document: { url: filePath },
             mimetype: "audio/mpeg",
             fileName: `${title}.mp3`
         }, { quoted: message });
