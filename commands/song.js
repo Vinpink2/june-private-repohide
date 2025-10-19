@@ -1,5 +1,4 @@
 
-
 //new song API 
 
 const yts = require('yt-search');
@@ -7,6 +6,13 @@ const axios = require('axios');
 
 async function songCommand(sock, chatId, message) {
     try {
+         await sock.sendMessage(chatId, {
+            react: {
+                text: "🎵",
+                key: message.key
+            }
+        });
+        
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
         const searchQuery = text.split(' ').slice(1).join(' ').trim();
         
@@ -26,7 +32,7 @@ async function songCommand(sock, chatId, message) {
 
         // Send loading message
         await sock.sendMessage(chatId, {
-            text: "_Please wait your download is in progress_"},{ quoted: message
+            text: "Please wait your download is in progress..."},{ quoted: message
         });
 
         // Get the first video result
