@@ -39,7 +39,7 @@ async function songCommand(sock, chatId, message) {
 
         if (!data || !data.status || !data.result || !data.result.download_url) {
             return await sock.sendMessage(chatId, { 
-                text: "Failed to fetch audio from the API. Please try again later."
+                text: "Failed to fetch audio from the API. Please try again later."},{ quoted: message
             });
         }
 
@@ -59,7 +59,7 @@ async function songCommand(sock, chatId, message) {
        await sock.sendMessage(chatId, { react: { text: '🔊', key: message.key } 
         });
        await sock.sendMessage(chatId, {
-            text: `_Downloaded successfully  by 𝐉ᴜɴᴇ 𝐌ᴅ BOT ✔️_`},{ quoted: message
+            text: `_Downloaded successfully  by June md 🖤_`},{ quoted: message
         });
 
     } catch (error) {
