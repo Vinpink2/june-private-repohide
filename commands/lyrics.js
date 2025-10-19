@@ -31,8 +31,7 @@ async function lyricsCommand(sock, chatId, songTitle, message) {
         const maxChars = 4096;
         const output = lyrics.length > maxChars ? lyrics.slice(0, maxChars - 3) + '...' : lyrics;
 
-        await sock.sendMessage(chatId, { image: data.result.image,
-                                         text: output }, { quoted: message });
+        await sock.sendMessage(chatId, { text: output }, { quoted: message });
     } catch (error) {
         console.error('Error in lyrics command:', error);
         await sock.sendMessage(chatId, { 
