@@ -1,6 +1,7 @@
 const yts = require('yt-search');
 const path = require('path');
 const axios = require('axios');
+const time = new Date().toLocaleTimeString();
 
 async function playCommand(sock, chatId, message) {
     try {        
@@ -16,8 +17,8 @@ async function playCommand(sock, chatId, message) {
             });
         }
         
-       // const timestamp = Date.now();
-        const fileName = `audio.mp3`;
+        const timestamp = Date.now();
+        const fileName = `audio_${timestamp}.mp3`;
         const filePath = path.join(tempDir, fileName);
 
         // Search for the song
