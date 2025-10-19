@@ -46,9 +46,7 @@ async function songCommand(sock, chatId, message) {
         const audioUrl = data.result.download_url;
         const title = data.result.title;
 
-        await sock.sendMessage(chatId, {
-            text: `_Downloading ${tittle}_`},{ quoted: message
-        });
+        
 
         // Send the audio
         await sock.sendMessage(chatId, {
@@ -59,6 +57,9 @@ async function songCommand(sock, chatId, message) {
         
         //successful react ✔️
        await sock.sendMessage(chatId, { react: { text: '✔️', key: message.key } 
+        });
+       await sock.sendMessage(chatId, {
+            text: `_Download successful_ ✅`},{ quoted: message
         });
 
     } catch (error) {
