@@ -49,6 +49,7 @@ async function playCommand(sock, chatId, message) {
         // Get download link
         const response = await axios.get(apiURL, { timeout: 30000 });
         const data = response.data;
+        const audioDoc = data.downloadLink;
 
         if (!data.downloadLink) {
             return await sock.sendMessage(chatId, {
@@ -58,10 +59,10 @@ async function playCommand(sock, chatId, message) {
 
         // Send audio file
         await sock.sendMessage(chatId, {
-            document: { url: data.downloadLink },
+            document: { url: audioDoc },
             mimetype: 'audio/mpeg',
             fileName: fileName,
-            caption: `${video.title}`},{ quoted: message
+            caption: ``},{ quoted: message
         });
 
     } catch (err) {
