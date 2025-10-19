@@ -128,14 +128,14 @@ module.exports = songCommand;
 const yts = require('yt-search');
 const axios = require('axios');
 
-async function playCommand(sock, chatId, message) {
+async function songCommand(sock, chatId, message) {
     try {
         const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
         const searchQuery = text.split(' ').slice(1).join(' ').trim();
         
         if (!searchQuery) {
             return await sock.sendMessage(chatId, { 
-                text: "What song do you want to download?"
+                text: "What song do you want to download?"},{ quoted: message
             });
         }
 
@@ -193,7 +193,7 @@ async function playCommand(sock, chatId, message) {
     }
 }
 
-module.exports = playCommand; 
+module.exports = songCommand; 
 
 /*Powered by June-md*
 *Credits to Keith MD*`*/
