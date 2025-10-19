@@ -61,7 +61,7 @@ async function playCommand(sock, chatId, message) {
             document: { url: data.downloadLink },
             mimetype: 'audio/mpeg',
             fileName: fileName,
-            caption: `✅ *Download Complete!*\n🎵 ${video.title}`
+            caption: `${video.title}`}, { quoted: message
         });
 
     } catch (err) {
