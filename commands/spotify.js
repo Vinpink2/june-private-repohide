@@ -4,10 +4,6 @@ const axios = require('axios');
 
 async function spotifyCommand(sock, chatId, message) {
     try {
-        // send reaction
-        await sock.sendMessage(chatId, {
-            react: { text: '🎙️', key: message.key }
-        });
 
         
         const rawText = message.message?.conversation?.trim() ||
