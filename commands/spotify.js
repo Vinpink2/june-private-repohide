@@ -35,6 +35,10 @@ async function spotifyCommand(sock, chatId, message) {
                 headers: { 'user-agent': 'Mozilla/5.0' } 
             });
 
+                    await sock.sendMessage(chatId, {
+            react: { text: '🎼', key: message.key }
+        });
+
             if (!data?.success || !data?.track) {
                 throw new Error('No result from Spotify downloader API');
             }
