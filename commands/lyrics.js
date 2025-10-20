@@ -10,9 +10,7 @@ async function lyricsCommand(sock, chatId, songTitle, message) {
 
     try {
         //send reaction 
-        await sock.sendMessage(chatId, {
-            react: { text: '🎙️', key: message.key }
-        });
+
 
     
         // Use lyricsapi.fly.dev and return only the raw lyrics text
@@ -38,6 +36,9 @@ async function lyricsCommand(sock, chatId, songTitle, message) {
         const output = lyrics.length > maxChars ? lyrics.slice(0, maxChars - 3) + '...' : lyrics;
 
         await sock.sendMessage(chatId, { text: output }, { quoted: message });
+        await sock.sendMessage(chatId, {
+            react: { text: '🎙️', key: message.key }
+        });
     } catch (error) {
         console.error('Error in lyrics command:', error);
         await sock.sendMessage(chatId, { 
