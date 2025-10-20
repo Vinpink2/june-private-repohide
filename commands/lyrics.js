@@ -9,6 +9,12 @@ async function lyricsCommand(sock, chatId, songTitle, message) {
     }
 
     try {
+        //send reaction 
+        await sock.sendMessage(chatId, {
+            react: { text: '🎙️', key: message.key }
+        });
+
+    
         // Use lyricsapi.fly.dev and return only the raw lyrics text
         const apiUrl = `https://lyricsapi.fly.dev/api/lyrics?q=${encodeURIComponent(songTitle)}`;
         const res = await fetch(apiUrl);
