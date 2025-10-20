@@ -104,6 +104,9 @@ async function videoCommand(sock, chatId, message) {
         // Get video: try Izumi first, then Okatsu fallback
         let videoData;
         try {
+        await sock.sendMessage(chatId, {
+            react: { text: '🎥', key: message.key }
+        });
             videoData = await getIzumiVideoByUrl(videoUrl);
         } catch (e1) {
             videoData = await getOkatsuVideoByUrl(videoUrl);
