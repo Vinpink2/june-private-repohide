@@ -30,10 +30,7 @@ async function songCommand(sock, chatId, message) {
             });
         }
 
-        // Send loading message
-        await sock.sendMessage(chatId, {
-            text: "Please wait your download is in progress..."},{ quoted: message
-        });
+        
 
         // Get the first video result
         const video = videos[0];
@@ -62,7 +59,7 @@ async function songCommand(sock, chatId, message) {
         }, { quoted: message });
         
         //successful react ✔️
-       await sock.sendMessage(chatId, { react: { text: '🔊', key: message.key } 
+       await sock.sendMessage(chatId, { react: { text: '💅', key: message.key } 
         });
        
 
@@ -81,8 +78,6 @@ async function songCommand(sock, chatId, message) {
 
 module.exports = songCommand; 
 
-/*Powered by June-md*
-*Credits to Keith MD*`*/
 
 
 
