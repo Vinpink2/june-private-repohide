@@ -49,6 +49,9 @@ async function getQuotedMediaBufferAndExt(message) {
 
 async function urlCommand(sock, chatId, message) {
     try {
+                await sock.sendMessage(chatId, {
+            react: { text: '🖇️', key: message.key }
+        });
         // Prefer current message media, else quoted media
         let media = await getMediaBufferAndExt(message);
         if (!media) media = await getQuotedMediaBufferAndExt(message);
