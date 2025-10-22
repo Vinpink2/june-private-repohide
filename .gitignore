@@ -8,10 +8,7 @@
  
  # Session files
  session/
- 
 
- # Environment variables
- .env
  
  # Log files
  *.log
