@@ -17,7 +17,7 @@ async function spotifyCommand(sock, chatId, message) {
         
         if (!query) {
             await sock.sendMessage(chatId, { 
-                text: 'Usage: .spotify <song/artist/keywords or Spotify URL>\nExample: .spotify Faded\nExample: .spotify https://open.spotify.com/track/...' 
+                text: 'Usage: .spotify <song/artist/keywords or Spotify URL>\n\nExample: .spotify Faded\nExample: .spotify https://open.spotify.com/track/...' 
             }, { quoted: message });
             return;
         }
@@ -87,9 +87,9 @@ async function spotifyCommand(sock, chatId, message) {
         }
 
         // Build caption
-        let caption = `🎵 *${trackInfo.title}*\n👤 ${trackInfo.artist}`;
-        if (trackInfo.album) caption += `\n💿 ${trackInfo.album}`;
-        if (trackInfo.duration) caption += `\n⏱ ${trackInfo.duration}`;
+        let caption = `Title: *${trackInfo.title}*\n👤info: ${trackInfo.artist}`;
+        if (trackInfo.album) caption += `\n💿Album: ${trackInfo.album}`;
+        if (trackInfo.duration) caption += `\n⏱Duration: ${trackInfo.duration}`;
         if (trackInfo.popularity) caption += `\n📊 Popularity: ${trackInfo.popularity}%`;
         caption += `\n🔗 ${trackInfo.spotifyUrl}`;
 
