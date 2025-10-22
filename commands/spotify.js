@@ -87,11 +87,11 @@ async function spotifyCommand(sock, chatId, message) {
         }
 
         // Build caption
-        let caption = `➢Title: *${trackInfo.title}*\n👤Artist: ${trackInfo.artist}`;
-        if (trackInfo.album) caption += `\n💿Album: ${trackInfo.album}`;
-        if (trackInfo.duration) caption += `\n⏱Duration: ${trackInfo.duration}`;
+        let caption = `📔 Title: *${trackInfo.title}*\n👤 Artist: ${trackInfo.artist}`;
+        if (trackInfo.album) caption += `\n💿 Album: ${trackInfo.album}`;
+        if (trackInfo.duration) caption += `\n⏰ Duration: ${trackInfo.duration}`;
         if (trackInfo.popularity) caption += `\n📊 Popularity: ${trackInfo.popularity}%`;
-        caption += `\n🔗 ${trackInfo.spotifyUrl}`;
+        caption += `\n🖇️ ${trackInfo.spotifyUrl}`;
 
         // Send thumbnail with caption
         if (trackInfo.thumbnail) {
