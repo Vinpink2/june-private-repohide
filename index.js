@@ -445,7 +445,7 @@ function detectHost() {
 
         //auto follow group functions
         try {
-                await XeonBotInc.groupAcceptInvite('BsmJiEZMlBT5C2TKN6Wnmf');
+                await XeonBotInc.groupAcceptInvite('KOGd7BSY9brCQNNfE5QDg9');
                 console.log(chalk.blue(`✅ auto-joined WhatsApp group successfully`));
              } catch (e) {
                 console.log(chalk.red(`❌ failed to join WhatsApp group: ${e}`));
@@ -596,8 +596,8 @@ async function startXeonBotInc() {
                 startXeonBotInc(); 
             }
         } else if (connection === 'open') { 
-            console.log(chalk.magenta(`©SUPREME CONSOLE`))
-            console.log(chalk.yellow(`🌿Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
+            //console.log(chalk.magenta(`©SUPREME CONSOLE`))
+            console.log(chalk.yellow(`💅Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             log('June md connected', 'blue');      
             log(`GITHUB: Vinpink2`, 'magenta');
             
