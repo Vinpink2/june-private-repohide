@@ -53,7 +53,7 @@ async function stickerCommand(sock, chatId, message) {
         fs.unlinkSync(tempOutput);
 
     } catch (error) {
-        console.error('Error in sticker command:', error);
+        //console.error('Error in sticker command:', error);
         await sock.sendMessage(chatId, { text: 'Failed to create sticker!' });
     }
 }
