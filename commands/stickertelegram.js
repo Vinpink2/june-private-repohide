@@ -11,6 +11,7 @@ const settings = require('../settings');
 
 async function stickerTelegramCommand(sock, chatId, msg) {
     try {
+    const pushname = message.pushName || "Unknown User"
         // Get the URL from message
         const text = msg.message?.conversation?.trim() || 
                     msg.message?.extendedTextMessage?.text?.trim() || '';
@@ -128,7 +129,7 @@ async function stickerTelegramCommand(sock, chatId, msg) {
                     // Create metadata
                     const metadata = {
                         'sticker-pack-id': crypto.randomBytes(32).toString('hex'),
-                        'sticker-pack-name': settings.packname,
+                        'sticker-pack-name': `${pushname}`,
                         'emojis': sticker.emoji ? [sticker.emoji] : ['🤖']
                     };
 
