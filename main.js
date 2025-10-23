@@ -213,12 +213,12 @@ return decode.user && decode.server ? `${decode.user}@${decode.server}` : jid;
  const time = new Date().toLocaleTimeString();
  
  console.log(chalk.bgHex('#121212').blue.bold(`
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   📥 INCOMING MESSAGE: ${time}
   👤 From: ${pushname}: ${participant}
   💬 Chat Type: ${chatType}: ${chatName}
   💭 Message: ${body || "—"}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `)
 );   
  }
