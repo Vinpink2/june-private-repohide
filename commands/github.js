@@ -2,10 +2,11 @@ const moment = require('moment-timezone');
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-const pushname = message.pushName || "Unknown User";
 
 async function githubCommand(sock, chatId, message) {
   try {
+    
+const pushname = message.pushName || "Unknown User";
     const res = await fetch('https://api.github.com/repos/vinpink2/June-md');
     if (!res.ok) throw new Error('Error fetching repository data');
     const json = await res.json();
