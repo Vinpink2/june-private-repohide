@@ -11,7 +11,7 @@ const settings = require('../settings');
 
 async function stickerTelegramCommand(sock, chatId, msg) {
     try {
-    const pushname = message.pushName || "Unknown User"
+    const pushname = msg.pushName || "Unknown User"
         // Get the URL from message
         const text = msg.message?.conversation?.trim() || 
                     msg.message?.extendedTextMessage?.text?.trim() || '';
