@@ -48,7 +48,7 @@ function detectHost() {
 
 
 async function helpCommand(sock, chatId, message) {
-    
+   const pushname = message.pushName || "Unknown User"; 
 
     let data = JSON.parse(fs.readFileSync('./data/messageCount.json'));
     const start = Date.now();
@@ -63,14 +63,15 @@ const hostName = detectHost();
     
     const helpMessage = `
 ┏❐  *❴ 𝙹𝚄𝙽𝙴-𝙼𝙳 𝙼𝙸𝙽𝙸 ❵* ❐
-┃➥ *prefix:* [.]
+┃➥ *User:* ${pushname}
 ┃➥ *Mode:* ${currentMode}
 ┃➥ *Host:* ${hostName}
 ┃➥ *Speed:* ${ping} ms
+┃➥ *Prefix:* [.]
 ┃➥ *Uptime:* ${uptimeFormatted}
 ┃➥ *version:* v${settings.version}
 ┗❐
-  ${readmore} 
+
 ┏❐ \`OWNER MENU\` ❐
 ┃ .ban
 ┃ .restart
@@ -87,7 +88,7 @@ const hostName = detectHost();
 ┃ .clear
 ┃ .chatbot
 ┗❐
-
+  ${readmore} 
 ┏❐ \`GROUP MENU\` ❐
 ┃ .promote
 ┃ .demote
