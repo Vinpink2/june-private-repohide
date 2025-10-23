@@ -7,6 +7,7 @@ const webp = require('node-webpmux');
 const crypto = require('crypto');
 
 async function stickerCommand(sock, chatId, message) {
+const pushname= message.pushName || "Unknown User"
     // The message that will be quoted in the reply.
     const messageToQuote = message;
     
@@ -109,8 +110,8 @@ async function stickerCommand(sock, chatId, message) {
         // Create metadata
         const json = {
             'sticker-pack-id': crypto.randomBytes(32).toString('hex'),
-            'sticker-pack-name': settings.packname || '',
-            'emojis': ['🤖']
+            'sticker-pack-name': settings.packname || `${pushname}`,
+            'emojis': ['🫩']
         };
 
         // Create exif buffer
@@ -139,7 +140,7 @@ async function stickerCommand(sock, chatId, message) {
         }
 
     } catch (error) {
-        console.error('Error in sticker command:', error);
+        //console.error('Error in sticker command:', error);
         await sock.sendMessage(chatId, { 
             text: 'Failed to create sticker! Try again later.',
             contextInfo: {
