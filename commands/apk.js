@@ -16,7 +16,7 @@
     if (!query) {
         await sock.sendMessage(chatId, {
             text: "*🔍 Please provide an app name to search.*\n\n_Usage:_\n.apk Instagram"
-        })
+        },{ quoted: message });
     }
 
     try {
@@ -30,7 +30,7 @@
         if (!data.datalist || !data.datalist.list || !data.datalist.list.length) {
             await sock.sendMessage(chatId, {
                 text: "❌ *No APK found for your query.*"
-            });
+            },{ quoted: message });
         }
 
         const app = data.datalist.list[0];
@@ -41,9 +41,7 @@
 📦 *Package:* ${app.package}
 📅 *Last Updated:* ${app.updated}
 📁 *Size:* ${sizeMB} MB
-
-> 𝐉ᴜɴᴇ 𝐌ᴅ
-        `.trim();
+`.trim();
 
         // React upload
         await sock.sendMessage(chatId, { react: { text: "⬆️", key: message.key } });
@@ -73,7 +71,7 @@
         console.error(e);
         await sock.sendMessage(chatId, {
             text: "❌ *Error occurred while downloading the APK.*\n\n_" + e.message + "_"
-        });
+        },{ quoted: message });
     }
 
 }
