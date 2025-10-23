@@ -120,7 +120,7 @@ const hostName = detectHost();
 ┃ .imagine
 ┃ .flux
 ┗❐  
-  ${readmore}
+  
 ┏❐ \`SETTING MENU\` ❐
 ┃ .mode
 ┃ .autostatus
@@ -136,7 +136,7 @@ const hostName = detectHost();
 ┃ .sudo
 ┃ .autotyping 
 ┗❐
-  
+  ${readmore}
 ┏❐ \`MAIN MENU\` ❐
 ┃ .url
 ┃ .tagall
@@ -146,6 +146,7 @@ const hostName = detectHost();
 ┃ .trt
 ┃ .alive
 ┃ .ping 
+┃ .apk
 ┃ .vv
 ┃ .video
 ┃ .song
