@@ -2,7 +2,7 @@ const moment = require('moment-timezone');
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-
+const pushname = message.pushName || "Unknown User";
 
 async function githubCommand(sock, chatId, message) {
   try {
@@ -20,7 +20,7 @@ async function githubCommand(sock, chatId, message) {
     txt += `🔹  *Forks* : ${json.forks_count}\n`;
     txt += `🔹  *Stars* : ${json.stargazers_count}\n`;
     txt += `🔹  *Desc* : ${json.description || 'None'}\n\n`;
-    txt += `> _✧ Thank you for choosing June Md Star⭐ & fork🔁_`;
+    txt += `@${pushname} _✧ Thank you for choosing June Md Star ⭐ & fork 🔁_`;
 
     // Use the local asset image
     const imgPath = path.join(__dirname, '../assets/menu.jpg');
