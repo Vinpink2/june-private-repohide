@@ -6,6 +6,7 @@ const crypto = require('crypto');
 
 async function takeCommand(sock, chatId, message, args) {
     try {
+         const pushname = message.pushName || "Unknown User"; 
         // Check if message is a reply to a sticker
         const quotedMessage = message.message?.extendedTextMessage?.contextInfo?.quotedMessage;
         if (!quotedMessage?.stickerMessage) {
@@ -14,7 +15,7 @@ async function takeCommand(sock, chatId, message, args) {
         }
 
         // Get the packname from args or use default
-        const packname = args.join(' ') || '𝐉ᴜɴᴇ 𝐌ᴅ';
+        const packname = args.join(' ') || `${pushname}`;
 
         try {
             // Download the sticker
