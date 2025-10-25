@@ -37,8 +37,8 @@ const pushname = message.pushName || "Unknown User";
                     title: 'June Official Repo',
                     body: "𝐉ᴜɴᴇ 𝐌ᴅ",
                     mediaType: 1,
-                    sourceUrl: "https://github.com/Vinpink2/june-md",
-                    thumbnailUrl: "https://d.uguu.se/JaOoOUFw.jpg",
+                    sourceUrl: "https://github.com/Vinpink2",
+                    thumbnailUrl: "https://files.catbox.moe/a0gfje.jpg",
                     renderLargerThumbnail: false,
                     showAdAttribution: false
                 }
