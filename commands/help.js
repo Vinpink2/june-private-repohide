@@ -274,8 +274,8 @@ const hostName = detectHost();
                     title: 'June Official',
                     body: `${pushname}`,
                     mediaType: 1,
-                    sourceUrl: "https://github.com/Vinpink2/june-md",
-                    thumbnailUrl: "https://d.uguu.se/JaOoOUFw.jpg",
+                    sourceUrl: "https://github.com/vinpink2",
+                    thumbnailUrl: "https://files.catbox.moe/a0gfje.jpg",
                     renderLargerThumbnail: false,
                     showAdAttribution: false
                 }
