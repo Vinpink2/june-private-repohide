@@ -38,7 +38,7 @@ async function songCommand(sock, chatId, message) {
 
         // Fetch audio data from API
         const response = await axios.get(`https://api.privatezia.biz.id/api/downloader/ytmp3?url=${urlYt}`);
-        const apiDdata = response.data;
+        const apiData = response.data;
 
         if (!apiData || !apiData.status || !apiData.result || !apiData.result.downloadUrl) {
             return await sock.sendMessage(chatId, { 
