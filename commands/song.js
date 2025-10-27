@@ -38,18 +38,18 @@ async function songCommand(sock, chatId, message) {
 
         // Fetch audio data from API
         const response = await axios.get(`https://api.privatezia.biz.id/api/downloader/ytmp3?url=${urlYt}`);
-        const data = response.data;
+        const apiDdata = response.data;
 
-        if (!data || !data.status || !data.result || !data.result.downloadUrl) {
+        if (!apiData || !apiData.status || !apiData.result || !apiData.result.downloadUrl) {
             return await sock.sendMessage(chatId, { 
                 text: "Failed to fetch audio from the API. Please try again later."},{ quoted: message
             });
         }
 
-        const audioUrl = data.result.downloadUrl;
-        const title = data.result.title;
+        const audioUrl = apiData.result.downloadUrl;
+        const title = apiData.result.title;
 
-        
+       const audioResponse = await axios({ method: "get", url: apiData.result.downloadUrl, responseType: "stream", timeout: 600000 });
 
         // Send the audio
         await sock.sendMessage(chatId, {
