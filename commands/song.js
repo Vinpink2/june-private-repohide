@@ -37,17 +37,17 @@ async function songCommand(sock, chatId, message) {
         const urlYt = video.url;
 
         // Fetch audio data from API
-        const response = await axios.get(`https://iamtkm.vercel.app/downloaders/ytmp3?apikey=tkm&url=${urlYt}`);
+        const response = await axios.get(`https://api.privatezia.biz.id/api/downloader/ytmp3?url=${urlYt}`);
         const data = response.data;
 
-        if (!data || !data.statusCode || !data.data || !data.data.url) {
+        if (!data || !data.status || !data.result || !data.result.downloadUrl) {
             return await sock.sendMessage(chatId, { 
                 text: "Failed to fetch audio from the API. Please try again later."},{ quoted: message
             });
         }
 
-        const audioUrl = data.data.url;
-        const title = data.data.title;
+        const audioUrl = data.result.downloadUrl;
+        const title = data.result.title;
 
         
 
