@@ -40,7 +40,7 @@ async function songCommand(sock, chatId, message) {
         const response = await axios.get(`https://iamtkm.vercel.app/downloaders/ytmp3?apikey=tkm&url=${urlYt}`);
         const data = response.data;
 
-        if (!data || !data.status || !data.data || !data.data.url) {
+        if (!data || !data.statusCode || !data.data || !data.data.url) {
             return await sock.sendMessage(chatId, { 
                 text: "Failed to fetch audio from the API. Please try again later."},{ quoted: message
             });
