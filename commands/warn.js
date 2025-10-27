@@ -31,6 +31,12 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
             });
             return;
         }
+        //check owner
+        const Owner = message.key.remoteJid;
+
+        if (!Owner) {
+            await sock.sendMessage(chatId, {
+                text: 'Owner command only'},{ quoted: message });
 
         // Check admin status first
         try {
@@ -97,7 +103,7 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
             const warningMessage = `*『 WARNING ALERT 』*\n\n` +
                 `👤 *Warned User:* @${userToWarn.split('@')[0]}\n` +
                 `⚠️ *Warning Count:* ${warnings[chatId][userToWarn]}/3\n` +
-                `👑 *Warned By:* @${senderId.split('@')[0]}\n\n` +
+                `👑 *Warned By:* @${senderId.split('@')[0]}\n` +
                 `📅 *Date:* ${new Date().toLocaleString()}`;
 
             await sock.sendMessage(chatId, { 
