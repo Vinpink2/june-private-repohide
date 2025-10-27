@@ -48,10 +48,12 @@ async function songCommand(sock, chatId, message) {
 
         const audioUrl = apiData.result.downloadUrl;
         const title = apiData.result.title;
-
+        
+       await sock.sendMessage(chatId, { text: `_🎶 Playing song: *${apiData.result.title}* 🎧_` }, { quoted: message });
+        //time out
        const audioResponse = await axios({ method: "get", url: apiData.result.downloadUrl, responseType: "stream", timeout: 600000 });
 
-       await sock.sendMessage(chatId, { text: `_🎶 Playing song: *${apiData.result.title}* 🎧_` }, { quoted: message });
+
         
         // Send the audio
         await sock.sendMessage(chatId, {
