@@ -46,8 +46,8 @@ async function songCommand(sock, chatId, message) {
             });
         }
 
-        const audioUrl = data.result.download_url;
-        const title = data.result.title;
+        const audioUrl = data.data.url;
+        const title = data.data.title;
 
         
 
