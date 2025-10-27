@@ -41,12 +41,6 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
                     text: '❌ Error: Please make the bot an admin first to use this command.'
                 });
                 
-        //check owner
-        const Owner = message.key.remoteJid || message.key.participant;
-
-        if (!Owner) {
-            await sock.sendMessage(chatId, {
-                text: 'Owner command only'},{ quoted: message });
                 return;
             }
 
