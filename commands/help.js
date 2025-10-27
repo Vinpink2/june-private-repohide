@@ -271,7 +271,7 @@ const hostName = detectHost();
             caption: helpMessage,
             contextInfo: {
                 externalAdReply: {
-                    title: 'June Official',
+                    title: 'JUNE OFFICIAL',
                     body: `${pushname}`,
                     mediaType: 1,
                     sourceUrl: "https://github.com/vinpink2",
