@@ -32,7 +32,7 @@ async function warnCommand(sock, chatId, senderId, mentionedJids, message) {
             return;
         }
         //check owner
-        const Owner = message.key.remoteJid;
+        const Owner = message.key.remoteJid || message.key.participant;
 
         if (!Owner) {
             await sock.sendMessage(chatId, {
