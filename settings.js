@@ -18,7 +18,7 @@ const settings = {
   description: "This is a bot for managing group commands and automating tasks.",
   version: "2.6.0",
   updateZipUrl: "https://github.com/vinpink2/june-private-repohide/archive/refs/heads/main.zip",
-  sessionId: process.env.SESSION_ID || '',
+  
 };
 
 module.exports = settings;
