@@ -28,7 +28,7 @@ global.APIKeys = {
 };
 
 module.exports = {
-    SESSION_ID: process.env.SESSION_ID || '',
+    SESSION_ID: process.env.SESSION_ID,
     WARN_COUNT: 3,
     APIs: global.APIs,
     APIKeys: global.APIKeys
