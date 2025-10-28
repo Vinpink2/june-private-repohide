@@ -1,4 +1,8 @@
-require('dotenv').config();
+const fs = require('fs')
+const path = require('path')
+if (fs.existsSync(path.join(__dirname, './.env'))) {
+    require('dotenv').config({ path: path.join(__dirname, './.env') })
+}
 
 global.APIs = {
     xteam: 'https://api.xteam.xyz',
