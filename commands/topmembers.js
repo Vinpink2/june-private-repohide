@@ -51,7 +51,7 @@ function topMembers(sock, chatId, isGroup) {
 
     let message = '🏆 Top Members Based on Message Count:\n\n';
     sortedMembers.forEach(([userId, count], index) => {
-        message += `${index + 1}. @${userId.split('@')[0]} - ${count} messages\n`;
+        message += `${index + 1}. 🔹@${userId.split('@')[0]} - ${count} messages\n`;
     });
 
     sock.sendMessage(chatId, { text: message, mentions: sortedMembers.map(([userId]) => userId) });
