@@ -311,11 +311,13 @@ async function handleMessages(sock, messageUpdate, printLog ) {
             message.message?.videoMessage?.caption?.trim() ||
             '';
 /*━━━━━━━━━━━━━━━━━━━━*/
-  // Only log command usage    /*━━━━━━━━━━━━━━━━━━━━*/
+  // Only log command usage    
+/*━━━━━━━━━━━━━━━━━━━━*/
 if (userMessage){ 
   
     /*━━━━━━━━━━━━━━━━━━━━*/
-      // safe  decoding of jid     /*━━━━━━━━━━━━━━━━━━━━*/
+      // safe  decoding of jid     
+   /*━━━━━━━━━━━━━━━━━━━━*/
 sock.decodeJid = (jid) => {
 if (!jid) return jid;
 if (/:\d+@/gi.test(jid)) {
@@ -575,6 +577,9 @@ return decode.user && decode.server ? `${decode.user}@${decode.server}` : jid;
                 break;
             case userMessage.startsWith(`${prefix}attp`):
                 await attpCommand(sock, chatId, message);
+                break;
+            case userMessage.startsWith(`${prefix}apk`):
+                await apkCommand(sock, chatId, message);
                 break;
                 
                 /*━━━━━━━━━━━━━━━━━━━━*/
