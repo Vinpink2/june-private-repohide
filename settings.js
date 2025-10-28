@@ -9,7 +9,7 @@ const settings = {
   packname: process.env.PACK_NAME || '',
   author: process.env.AUTHOR || '',
   botName: process.env.BOT_NEME || '',
-  botOwner: Process.env.BOT_OWNER || '', // Your name
+  botOwner: process.env.BOT_OWNER || '', // Your name
   ownerNumber: process.env.OWNER_NO || , //Set your number here without + symbol, just add country code & number without any space
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: process.env.MODE || '',
