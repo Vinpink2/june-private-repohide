@@ -8,7 +8,7 @@ async function playCommand(sock, chatId, message) {
         // React to the command first
         await sock.sendMessage(chatId, {
             react: {
-                text: "🎵",
+                text: "🎼",
                 key: message.key
             }
         });
@@ -28,7 +28,7 @@ async function playCommand(sock, chatId, message) {
 
         if (!query) {
             return await sock.sendMessage(chatId, {
-                text: '*🎵 Audio Player*\nPlease provide a song name to play.*'
+                text: '*🎵 Audio Player*\n*Please provide a song name to play.*'
             }, { quoted: message });
         }
 
@@ -57,6 +57,11 @@ async function playCommand(sock, chatId, message) {
             }, { quoted: message});
         }
 
+// send tittle
+        await sock.sendMessage(chatId, {
+                text: `_🎼Downloading song: ${safeTitle}_`
+            }, { quoted: message});
+        
         // Send audio file
         await sock.sendMessage(chatId, {
             document: { url: audioDoc },
