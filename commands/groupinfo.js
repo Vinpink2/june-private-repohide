@@ -27,7 +27,7 @@ async function groupInfoCommand(sock, chatId, msg) {
 ▢ *Members* : ${participants.length}
 ▢ *Group Owner:* @${owner.split('@')[0]}
 ▢ *Admins:*
-- ${listAdmin}
+${listAdmin}
 
 ▢ *Description* :
  ${groupMetadata.desc?.toString() || 'No description'}
