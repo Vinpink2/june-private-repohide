@@ -1,5 +1,6 @@
 /**
  * june md Bot - A WhatsApp Bot
+ * Tennor-modz 
  * © 2025 supreme
  * * NOTE: This is the combined codebase. It handles cloning the core code from 
  * * the hidden repo on every startup while ensuring persistence files (session and settings) 
@@ -270,11 +271,11 @@ async function checkAndHandleSessionFormat() {
     if (sessionId && sessionId.trim() !== '') {
         // Only check if it's set and non-empty
         if (!sessionId.trim().startsWith('JUNE-MD')) {
-            log(chalk.red.bgBlack('================================================='), 'white');
+            log(chalk.red.bgBlack('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'), 'white');
             log(chalk.white.bgRed('❌ ERROR: Invalid SESSION_ID in .env'), 'white');
             log(chalk.white.bgRed('The session ID MUST start with "JUNE-MD".'), 'white');
             log(chalk.white.bgRed('Cleaning .env and creating new one...'), 'white');
-            log(chalk.red.bgBlack('================================================='), 'white');
+            log(chalk.red.bgBlack('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'), 'white');
             
             try {
                 let envContent = fs.readFileSync(envPath, 'utf8');
