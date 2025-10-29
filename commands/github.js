@@ -12,7 +12,7 @@ const pushname = message.pushName || "Unknown User";
     const json = await res.json();
 
     let txt = 
-           `🔹  \`𝙹𝚄𝙽𝙴 𝙼𝙳 𝚁𝙴𝙿𝙾 𝙸𝙽𝙵𝙾.\` \n\n`;
+           `🔹  \`JUNE-X REPO INFO.\` \n\n`;
     txt += `🔸  *Name* : ${json.name}\n`;
     txt += `🔸  *Watchers* : ${json.watchers_count}\n`;
     txt += `🔸  *Size* : ${(json.size / 1024).toFixed(2)} MB\n`;
@@ -21,10 +21,10 @@ const pushname = message.pushName || "Unknown User";
     txt += `🔹  *Forks* : ${json.forks_count}\n`;
     txt += `🔹  *Stars* : ${json.stargazers_count}\n`;
     txt += `🔹  *Desc* : ${json.description || 'None'}\n\n`;
-    txt += `@${pushname} _✧ Thank you for choosing June Md Star ⭐ & fork 🔁_`;
+    txt += `@${pushname} _Thank you for choosing,  Star ⭐ & fork 🔁_`;
 
     // Use the local asset image
-    const imgPath = path.join(__dirname, '../assets/menu.jpg');
+    const imgPath = path.join(__dirname, '../assets/menu2.jpg');
     const imgBuffer = fs.readFileSync(imgPath);
 
     /*await sock.sendMessage(chatId, { image: imgBuffer, caption: txt }, { quoted: message });*/
