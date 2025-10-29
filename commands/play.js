@@ -5,8 +5,10 @@ async function playCommand(sock, chatId, message) {
     const path = require('path');
     const fetch = require('node-fetch');
 
-                try {
-                    
+                try { 
+    await sock.sendMessage(chatId, {
+            react: { text: '🎼', key: message.key }
+        });         
                     
   const tempDir = path.join(__dirname, "temp");
                     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
@@ -15,7 +17,6 @@ async function playCommand(sock, chatId, message) {
  
 const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
    const parts = text.split(' ');
-  // const command = parts[0].toLowerCase();
    const query = parts.slice(1).join(' ').trim();
 
              
