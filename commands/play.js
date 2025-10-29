@@ -1,82 +1,86 @@
-
-
-
-
-
 async function playCommand(sock, chatId, message) {
-    try {
-        // React to the command first
-        await sock.sendMessage(chatId, {
-            react: {
-                text: "🎼",
-                key: message.key
-            }
-        });
+    const fs = require("fs");
+    const axios = require('axios');
+    const yts = require('yt-search');
+    const path = require('path');
+    const fetch = require('node-fetch');
 
-        const axios = require('axios');
-        const yts = require('yt-search');
-        const BASE_URL = 'https://noobs-api.top';
+                try {
+                    
+                    
+  const tempDir = path.join(__dirname, "temp");
+                    if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
+                    
+      
+ 
+const text = message.message?.conversation || message.message?.extendedTextMessage?.text;
+   const parts = text.split(' ');
+  // const command = parts[0].toLowerCase();
+   const query = parts.slice(1).join(' ').trim();
 
-        // Extract query from message
-        const q = message.message?.conversation || 
-                  message.message?.extendedTextMessage?.text || 
-                  message.message?.imageMessage?.caption || 
-                  message.message?.videoMessage?.caption || '';
-        
-        const args = q.split(' ').slice(1);
-        const query = args.join(' ').trim();
+             
+  if (!query) return await sock.sendMessage(chatId, { text: '🎵 Provide a song name!\nExample: Not Like Us'},{ quoted: message});
 
-        if (!query) {
-            return await sock.sendMessage(chatId, {
-                text: '*🎵 Audio Player*\n*Please provide a song name to play.*'
-            }, { quoted: message });
-        }
+               
+                    if (query.length > 100) return await sock.sendMessage(chatId, { text: `📝 Song name too long! Max 100 chars.`},{ quoted: message});
 
-        console.log('[PLAY] Searching YT for:', query);
-        const search = await yts(query);
-        const video = search.videos[0];
 
-        if (!video) {
-            return await sock.sendMessage(chatId, {
-                text: '*❌ No Results Found*\nNo songs found for your query. Please try different keywords.*'
-            }, { quoted: message });
-        }
+   const searchResult = await (await yts(`${query} official`)).videos[0];
+                    if (!searchResult) return sock.sendMessage(chatId, { text: "😕 Couldn't find that song. Try another one!"},{ quoted: message });
 
-        const safeTitle = video.title.replace(/[\\/:*?"<>|]/g, '');
-        const fileName = `${safeTitle}.mp3`;
-        const apiURL = `${BASE_URL}/dipto/ytDl3?link=${encodeURIComponent(video.videoId)}&format=mp3`;
+                    const video = searchResult;
+                    const apiUrl = `https://api.privatezia.biz.id/api/downloader/ytmp3?url=${encodeURIComponent(video.url)}`;
+                    const response = await axios.get(apiUrl);
+                    const apiData = response.data;
 
-        // Get download link
-        const response = await axios.get(apiURL, { timeout: 30000 });
-        const data = response.data;
-        const audioDoc = data.downloadLink;
+                    if (!apiData.status || !apiData.result || !apiData.result.downloadUrl) throw new Error("API failed to fetch track!");
 
-        if (!data.downloadLink) {
-            return await sock.sendMessage(chatId, {
-                text: '*❌ Download Failed*\nFailed to retrieve the MP3 download link. Please try again later.*'
-            }, { quoted: message});
-        }
+                    const timestamp = Date.now();
+                    const fileName = `audio_${timestamp}.mp3`;
+                    const filePath = path.join(tempDir, fileName);
 
-// send tittle
-        await sock.sendMessage(chatId, {
-                text: `_🎼Downloading song: ${safeTitle}_`
-            }, { quoted: message});
-        
-        // Send audio file
-        await sock.sendMessage(chatId, {
-            document: { url: audioDoc },
-            mimetype: 'audio/mpeg',
-            fileName: fileName,
-            caption: ``},{ quoted: message
-        });
+                    // Download MP3
+                    const audioResponse = await axios({ method: "get", url: apiData.result.downloadUrl, responseType: "stream", timeout: 600000 });
+                    const writer = fs.createWriteStream(filePath);
+                    audioResponse.data.pipe(writer);
+                    await new Promise((resolve, reject) => { writer.on("finish", resolve); writer.on("error", reject); });
 
-    } catch (err) {
-        console.error('[PLAY] Error:', err.message);
-        await sock.sendMessage(chatId, {
-            text: '*❌ Error Occurred*'
-        }, { quoted: message });
-    }
+                    if (!fs.existsSync(filePath) || fs.statSync(filePath).size === 0) throw new Error("Download failed or empty file!");
 
+                    await sock.sendMessage(chatId, { text:`🎶 Playing *${apiData.result.title || video.title}* 🎧` }, { quoted: message });
+                    await sock.sendMessage(chatId, { document: { url: filePath }, mimetype: "audio/mpeg", fileName: `${(apiData.result.title || video.title).substring(0, 100)}.mp3` }, { quoted: message });
+
+                    // Cleanup
+                    if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+
+                } catch (error) {
+                    console.error("Play command error:", error);
+                    return await sock.sendMessage(chatId, { text: `💥 Error: ${error.message}`},{quoted: message});
+                }
+            
 }
 
-module.exports = playCommand
+
+module.exports = playCommand;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
