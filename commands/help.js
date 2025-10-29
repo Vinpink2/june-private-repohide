@@ -69,7 +69,7 @@ const generateMenu = (pushname, currentMode, hostName, ping, uptimeFormatted, pr
     
     const menuSettings = getMenuSettings();
     
-    let menu = `┏❐  *❴ 𝙹𝚄𝙽𝙴-𝙼𝙳 𝙼𝙸𝙽𝙸 ❵* ❐\n`;
+    let menu = `┏❐  *❴ JUNE - X BOT ❵* ❐\n`;
     menu += `┃➥ *User:* ${pushname}\n`;
     menu += `┃➥ *Mode:* ${currentMode}\n`;
     menu += `┃➥ *Host:* ${hostName}\n`;
@@ -190,7 +190,7 @@ function createFakeContact(message) {
 // YOUR EXACT MENU STYLE FUNCTION WITH FIXED tylorkids AND fkontak FOR ALL STYLES
 async function sendMenuWithStyle(sock, chatId, message, menulist, menustyle, thumbnailBuffer, pushname) {
     const fkontak = createFakeContact(message);
-    const botname = "JUNE-MD";
+    const botname = "JUNE-X BOT";
     const ownername = pushname;
     const tylorkids = thumbnailBuffer; // Fixed: using thumbnails from assets
     const plink = "https://github.com/vinpink2";
