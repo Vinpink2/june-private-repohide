@@ -176,7 +176,7 @@ function createFakeContact(message) {
             participants: "0@s.whatsapp.net",
             remoteJid: "status@broadcast",
             fromMe: false,
-            id: "JUNE-MD-MENU"
+            id: "JUNE-X-MENU"
         },
         message: {
             contactMessage: {
@@ -206,7 +206,7 @@ async function sendMenuWithStyle(sock, chatId, message, menulist, menustyle, thu
             fileLength: "9999999",
             contextInfo: {
                 externalAdReply: {
-                    showAdAttribution: true,
+                    showAdAttribution: false,
                     title: "",
                     body: "",
                     thumbnail: tylorkids,
@@ -225,7 +225,7 @@ async function sendMenuWithStyle(sock, chatId, message, menulist, menustyle, thu
             text: menulist,
             contextInfo: {
                 externalAdReply: {
-                    showAdAttribution: true,
+                    showAdAttribution: false,
                     title: botname,
                     body: ownername,
                     thumbnail: tylorkids,
@@ -273,7 +273,7 @@ async function sendMenuWithStyle(sock, chatId, message, menulist, menustyle, thu
                         contextInfo: {
                             mentionedJid: [message.key.participant || message.key.remoteJid],
                             externalAdReply: {
-                                showAdAttribution: true,
+                                showAdAttribution: false,
                             },
                         },
                     },
@@ -302,7 +302,7 @@ async function helpCommand(sock, chatId, message) {
     
     const start = Date.now();
     await sock.sendMessage(chatId, { 
-        text: '_Wait Loading Menu..._' 
+        text: '_Wait loading menu..._' 
     }, { quoted: fkontak });
     const end = Date.now();
     const ping = Math.round((end - start) / 2);
@@ -339,7 +339,7 @@ async function helpCommand(sock, chatId, message) {
 
         // Success reaction
         await sock.sendMessage(chatId, {
-            react: { text: '✔️', key: message.key }
+            react: { text: '✅', key: message.key }
         });
 
     } catch (error) {
