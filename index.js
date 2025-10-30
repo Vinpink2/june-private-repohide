@@ -422,6 +422,8 @@ function detectHost() {
     
 
     try {
+
+        const { getPrefix, handleSetPrefixCommand } = require('./commands/setprefix');
         if (!XeonBotInc.user || global.isBotConnected) return;
 
         global.isBotConnected = true;
@@ -429,13 +431,13 @@ function detectHost() {
         let data = JSON.parse(fs.readFileSync('./data/messageCount.json'));
         const currentMode = data.isPublic ? 'public' : 'private';    
         const hostName = detectHost();
-   
+        const prefix = getPrefix();
 
         // Send the message
         await XeonBotInc.sendMessage(pNumber, {
             text: `
 ┏━━━━━✧ CONNECTED ✧━━━━━━━
-┃✧ Prefix: [.]
+┃✧ Prefix: ${prefix}
 ┃✧ mode: ${currentMode}
 ┃✧ Platform: ${hostName}
 ┃✧ Bot: JUNE MD
