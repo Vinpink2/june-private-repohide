@@ -1,5 +1,6 @@
 
 // help.js - Enhanced version with integrated functions
+const { getPrefix, handleSetPrefixCommand } = require('./setprefix');
 const settings = require('../settings');
 const fs = require('fs');
 const path = require('path');
@@ -67,7 +68,7 @@ const generateMenu = (pushname, currentMode, hostName, ping, uptimeFormatted, pr
     const botUsedMemory = memoryUsage.heapUsed;
     const totalMemory = os.totalmem();
     const systemUsedMemory = totalMemory - os.freemem();
-    
+    const prefix2 = getPrefix();
     const menuSettings = getMenuSettings();
     
     let menu = `┏❐  *❴ JUNE - X BOT ❵* ❐\n`;
@@ -75,7 +76,7 @@ const generateMenu = (pushname, currentMode, hostName, ping, uptimeFormatted, pr
     menu += `┃➥ *Mode:* ${currentMode}\n`;
     menu += `┃➥ *Host:* ${hostName}\n`;
     menu += `┃➥ *Speed:* ${ping} ms\n`;
-    menu += `┃➥ *Prefix:* [${prefix}]\n`;
+    menu += `┃➥ *Prefix:* [${prefix2}]\n`;
     
     if (menuSettings.showUptime) {
         menu += `┃➥ *Uptime:* ${uptimeFormatted}\n`;
