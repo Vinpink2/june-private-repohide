@@ -874,6 +874,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 break;
 
             case userMessage === `${prefix}runtime`:
+            case userMessage === `${prefix}uptime`:
                 await aliveCommand(sock, chatId, message);
                 break;
 
