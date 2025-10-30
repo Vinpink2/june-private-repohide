@@ -1,13 +1,12 @@
 
 // help.js - Enhanced version with integrated functions
-const { getPrefix, handleSetPrefixCommand } = require('./setprefix');
 const settings = require('../settings');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const { getMenuStyle, getMenuSettings, MENU_STYLES } = require('./menuSettings');
 const { generateWAMessageFromContent } = require('@whiskeysockets/baileys');
-
+const { getPrefix, handleSetPrefixCommand } = require('./setprefix');
 const more = String.fromCharCode(8206);
 const readmore = more.repeat(4001);
 
@@ -76,7 +75,7 @@ const generateMenu = (pushname, currentMode, hostName, ping, uptimeFormatted, pr
     menu += `┃➥ *Mode:* ${currentMode}\n`;
     menu += `┃➥ *Host:* ${hostName}\n`;
     menu += `┃➥ *Speed:* ${ping} ms\n`;
-    menu += `┃➥ *Prefix:* [${prefix2}]\n`;
+    menu += `┃➥ *Prefix:* ${prefix2}\n`;
     
     if (menuSettings.showUptime) {
         menu += `┃➥ *Uptime:* ${uptimeFormatted}\n`;
