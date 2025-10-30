@@ -57,7 +57,7 @@ const formatMemory = (memory) => {
 const progressBar = (used, total, size = 10) => {
     let percentage = Math.round((used / total) * size);
     let bar = '█'.repeat(percentage) + '░'.repeat(size - percentage);
-    return `[${bar}] ${Math.round((used / total) * 100)}%`;
+    return `${bar} ${Math.round((used / total) * 100)}%`;
 };
 
 // Generate Menu Function
