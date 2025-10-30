@@ -1,4 +1,6 @@
 // commands/menuConfig.js
+
+
 const { 
     setMenuStyle, 
     getMenuSettings, 
@@ -14,12 +16,12 @@ async function menuConfigCommand(sock, chatId, message, args) {
     if (args.length === 0) {
         // Show current settings
         const settings = getMenuSettings();
-        let configMessage = `┏❐ *JUNE MD MENU CONFIG* ❐\n`;
-        configMessage += `┃➥ *Current Style:* ${settings.menuStyle} (${MENU_STYLES[settings.menuStyle]})\n`;
-        configMessage += `┃➥ *Show Memory:* ${settings.showMemory ? '✅' : '❌'}\n`;
-        configMessage += `┃➥ *Show Uptime:* ${settings.showUptime ? '✅' : '❌'}\n`;
-        configMessage += `┃➥ *Show Progress Bar:* ${settings.showProgressBar ? '✅' : '❌'}\n`;
-        configMessage += `┗❐\n\n`;
+        let configMessage = `*JUNE X MENU CONFIG* ❐\n`;
+        configMessage += `➥ *Current Style:* ${settings.menuStyle} (${MENU_STYLES[settings.menuStyle]})\n`;
+        configMessage += `➥ *Show Memory:* ${settings.showMemory ? '✅' : '❌'}\n`;
+        configMessage += `➥ *Show Uptime:* ${settings.showUptime ? '✅' : '❌'}\n`;
+        configMessage += `➥ *Show Progress Bar:* ${settings.showProgressBar ? '✅' : '❌'}\n`;
+        configMessage += `\n\n`;
         
         configMessage += `*Available Styles:*\n`;
         for (const [style, description] of Object.entries(MENU_STYLES)) {
@@ -27,8 +29,8 @@ async function menuConfigCommand(sock, chatId, message, args) {
         }
         
         configMessage += `\n*Usage:*\n`;
-        configMessage += `• .menuconfig style <1-6> - Change menu style\n`;
-        configMessage += `• .menuconfig toggle <setting> - Toggle settings\n`;
+        configMessage += `• .setmenu style <1-6> - Change menu style\n`;
+        configMessage += `• .setmenu toggle <setting> - Toggle settings\n`;
         configMessage += `• .menuconfig reset - Reset to default\n`;
         configMessage += `• .menuconfig preview - Preview current style\n`;
         
