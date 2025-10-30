@@ -1,3 +1,4 @@
+
 // help.js - Enhanced version with integrated functions
 const settings = require('../settings');
 const fs = require('fs');
@@ -106,7 +107,7 @@ const generateMenu = (pushname, currentMode, hostName, ping, uptimeFormatted, pr
 
     // Setting Menu
     menu += `┏❐ \`SETTING MENU\` ❐\n`;
-    menu += `┃ .mode\n┃ .autostatus\n┃ .pmblock\n┃ .setmention\n┃ .autoread\n┃ .clearsession\n┃ .antidelete\n┃ .cleartmp\n┃ .autoreact\n┃ .getpp\n┃ .setpp\n┃ .sudo\n┃ .autotyping\n`;
+    menu += `┃ .mode\n┃ .autostatus\n┃ .pmblock\n┃ .setmention\n┃ .autoread\n┃ .clearsession\n┃ .antidelete\n┃ .cleartmp\n┃ .autoreact\n┃ .getpp\n┃ .setpp\n┃ .sudo\n┃ .autotyping\n┃ .setmenu\n┃ .setprefix\n`;
     menu += `┗❐\n${readmore}\n`;
 
     // Main Menu
@@ -180,7 +181,7 @@ function createFakeContact(message) {
         },
         message: {
             contactMessage: {
-                vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:JUNE MD\nitem1.TEL;waid=${message.key.participant?.split('@')[0] || message.key.remoteJid.split('@')[0]}:${message.key.participant?.split('@')[0] || message.key.remoteJid.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+                vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:JUNE X\nitem1.TEL;waid=${message.key.participant?.split('@')[0] || message.key.remoteJid.split('@')[0]}:${message.key.participant?.split('@')[0] || message.key.remoteJid.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
             }
         },
         participant: "0@s.whatsapp.net"
