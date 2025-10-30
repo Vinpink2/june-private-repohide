@@ -1459,7 +1459,8 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await piesAlias(sock, chatId, message, 'hijab');
                 commandExecuted = true;
                 break;
-            case userMessage.startsWith('.update'):
+              
+              //-------update command
             case userMessage.startsWith('.start'):
             case userMessage.startsWith('.restart'):
                 {
@@ -1469,6 +1470,8 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 }
                 commandExecuted = true;
                 break;
+
+              
             case userMessage.startsWith('.removebg') || userMessage.startsWith('.rmbg') || userMessage.startsWith('.nobg'):
                 await removebgCommand.exec(sock, message, userMessage.split(' ').slice(1));
                 break;
