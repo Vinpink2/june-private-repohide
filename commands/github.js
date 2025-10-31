@@ -66,7 +66,7 @@ const pushname = message.pushName || "Unknown User";
                     showAdAttribution: false
                 }
             }
-        },{ quoted:message});      
+        },{ quoted: fkontak });      
       
       
       
