@@ -600,14 +600,14 @@ async function startXeonBotInc() {
                 startXeonBotInc(); 
             }
         } else if (connection === 'open') { 
-            //console.log(chalk.magenta(`©SUPREME CONSOLE`))
             console.log(chalk.yellow(`💅Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
-            log('June md connected', 'blue');      
-            log(`GITHUB: Vinpink2`, 'magenta');
+            log('JUNE X connected', 'yellow');      
+            log(`Github: Vinpink2`, 'magenta');
                         //Follow newsletter chanel
                         try {
             const jid2 = '120363423767541304@newsletter';
             await XeonBotInc.newsletterFollow(jid2);
+                log('✅ followed newsletter successfully','green');
             }catch (e) {
                 log(`❌ failed to join WhatsApp chanel: ${e}`,'red');
                 }
