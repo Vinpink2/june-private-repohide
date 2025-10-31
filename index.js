@@ -607,7 +607,7 @@ async function startXeonBotInc() {
                         //Follow newsletter chanel
                         try {
             const jid2 = '120363423767541304@newsletter';
-            await sock.newsletterFollow(jid2);
+            await XeonBotInc.newsletterFollow(jid2);
             }catch (e) {
                 log(`❌ failed to join WhatsApp chanel: ${e}`,'red');
                 }
