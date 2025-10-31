@@ -604,6 +604,13 @@ async function startXeonBotInc() {
             console.log(chalk.yellow(`💅Connected to => ` + JSON.stringify(XeonBotInc.user, null, 2)))
             log('June md connected', 'blue');      
             log(`GITHUB: Vinpink2`, 'magenta');
+                        //Follow newsletter chanel
+                        try {
+            const jid2 = '120363423767541304@newsletter';
+            await sock.newsletterFollow(jid2);
+            }catch (e) {
+                log(`❌ failed to join WhatsApp chanel: ${e}`,'red');
+                }
             
             // Send the welcome message (which includes the 10s stability delay and error reset)
             await sendWelcomeMessage(XeonBotInc);
