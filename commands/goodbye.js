@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 async function goodbyeCommand(sock, chatId, message, match) {
     // Check if it's a group
     if (!chatId.endsWith('@g.us')) {
-        await sock.sendMessage(chatId, { text: 'This command can only be used in groups.' });
+        await sock.sendMessage(chatId, { text: 'This command can only be used in groups.' },{ quoted: message });
         return;
     }
 
